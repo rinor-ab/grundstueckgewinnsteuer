@@ -1,0 +1,53 @@
+# Thurgau Grundstückgewinnsteuer tariff
+# Source: StG TG (Steuergesetz Thurgau)
+# Source: https://www.steuerverwaltung.tg.ch/grundstueckgewinnsteuer
+# Source: https://www.estv2.admin.ch/stp/kb/tg-de.pdf
+
+# TG uses a FLAT PROPORTIONAL rate of 40%,
+# adjusted by holding-period surcharges and discounts.
+
+tax_model: "proportional_with_adjustments"
+
+# Base rate (proportional)
+base_rate: 0.40
+
+# No minimum taxable gain
+minimum_taxable_gain: 0
+
+# Surcharges for short holding (multiplicative on the base rate)
+surcharge_threshold_months: 60
+surcharges:
+  - {max_months: 12, rate: 0.50}   # <1 yr: +50%
+  - {max_months: 24, rate: 0.40}   # <2 yr: +40%
+  - {max_months: 36, rate: 0.30}   # <3 yr: +30%
+  - {max_months: 48, rate: 0.25}   # <4 yr: +25%
+  - {max_months: 60, rate: 0.20}   # <5 yr: +20%
+
+# Discounts for long holding (multiplicative factor applied to rate)
+# 4%/yr from yr 6–10, then continues to 72% at yr 23+
+discount_min_years: 6
+discounts:
+  - {years: 6, rate: 0.04}
+  - {years: 7, rate: 0.08}
+  - {years: 8, rate: 0.12}
+  - {years: 9, rate: 0.16}
+  - {years: 10, rate: 0.20}
+  - {years: 11, rate: 0.24}
+  - {years: 12, rate: 0.28}
+  - {years: 13, rate: 0.32}
+  - {years: 14, rate: 0.36}
+  - {years: 15, rate: 0.40}
+  - {years: 16, rate: 0.44}
+  - {years: 17, rate: 0.48}
+  - {years: 18, rate: 0.52}
+  - {years: 19, rate: 0.56}
+  - {years: 20, rate: 0.60}
+  - {years: 21, rate: 0.64}
+  - {years: 22, rate: 0.68}
+  - {years: 23, rate: 0.72}
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+confessions: []

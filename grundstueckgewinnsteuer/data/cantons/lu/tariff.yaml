@@ -1,0 +1,83 @@
+# Luzern Grundstückgewinnsteuer tariff
+# Source: StG LU § 195ff
+# Source: https://www.lu.ch/verwaltung/FD/Dienststellen/steuern/grundstueckgewinnsteuer
+# Source: https://www.estv2.admin.ch/stp/kb/lu-de.pdf (ESTV Kantonsblatt)
+
+# Luzern uses income tax tariff for single persons to compute simple tax.
+# Then multiplied by uniform canton rate of 4.2 Einheiten.
+# This is a placeholder bracket table from official sources.
+# TODO: verify exact bracket limits against official Einkommenstarif Alleinstehende
+
+brackets:
+  - {limit: 6700, rate: 0.0}
+  - {limit: 11400, rate: 0.02}
+  - {limit: 15800, rate: 0.03}
+  - {limit: 22100, rate: 0.04}
+  - {limit: 29700, rate: 0.05}
+  - {limit: 38500, rate: 0.06}
+  - {limit: 49400, rate: 0.07}
+  - {limit: 63800, rate: 0.08}
+  - {limit: 82800, rate: 0.09}
+  - {limit: 109300, rate: 0.10}
+  - {limit: 146400, rate: 0.11}
+  - {limit: 200000, rate: 0.115}
+
+# Gains above 200,000; flat rate
+top_rate: 0.12
+
+# LU: Gains below 13,000 CHF tax-free (highest in CH)
+minimum_taxable_gain: 13000
+
+# Uniform canton multiplier (Steuereinheit 4.2)
+canton_multiplier: 4.2
+
+# Surcharges for short ownership
+surcharge_threshold_months: 60  # < 5 years = surcharge
+surcharges_by_months:
+  - {max_months: 12, rate: 0.50}   # < 1 year: +50%
+  - {max_months: 24, rate: 0.40}   # 1–2 years: +40%
+  - {max_months: 36, rate: 0.30}   # 2–3 years: +30%
+  - {max_months: 48, rate: 0.20}   # 3–4 years: +20%
+  - {max_months: 60, rate: 0.10}   # 4–5 years: +10%
+
+# Discounts: from 9th year, 1% per year, max 25% at 33+ years
+discount_min_years: 9
+discounts_by_years:
+  - {years: 9, rate: 0.01}
+  - {years: 10, rate: 0.02}
+  - {years: 11, rate: 0.03}
+  - {years: 12, rate: 0.04}
+  - {years: 13, rate: 0.05}
+  - {years: 14, rate: 0.06}
+  - {years: 15, rate: 0.07}
+  - {years: 16, rate: 0.08}
+  - {years: 17, rate: 0.09}
+  - {years: 18, rate: 0.10}
+  - {years: 19, rate: 0.11}
+  - {years: 20, rate: 0.12}
+  - {years: 21, rate: 0.13}
+  - {years: 22, rate: 0.14}
+  - {years: 23, rate: 0.15}
+  - {years: 24, rate: 0.16}
+  - {years: 25, rate: 0.17}
+  - {years: 26, rate: 0.18}
+  - {years: 27, rate: 0.19}
+  - {years: 28, rate: 0.20}
+  - {years: 29, rate: 0.21}
+  - {years: 30, rate: 0.22}
+  - {years: 31, rate: 0.23}
+  - {years: 32, rate: 0.24}
+  - {years: 33, rate: 0.25}
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+# LU uses a uniform Steuereinheit (no per-commune Steuerfuss for GGSt)
+tax_model: "uniform_canton_rate"
+
+confessions:
+  - roemK
+  - evangR
+  - christK
+  - Andere

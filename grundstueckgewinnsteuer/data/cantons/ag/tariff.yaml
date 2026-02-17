@@ -1,0 +1,52 @@
+# Aargau Grundstückgewinnsteuer tariff
+# Source: StG AG §§ 95–111 (Steuergesetz Aargau)
+# Source: https://www.ag.ch/de/verwaltung/dfr/steuern/grundstueckgewinnsteuer
+# Source: https://www.estv2.admin.ch/stp/kb/ag-de.pdf (ESTV Kantonsblatt)
+
+# AG uses a degressive flat rate based on holding period.
+# There are NO progressive brackets — the rate depends solely on
+# how long the property was held. Rate = gain × rate(years).
+
+# Rate table: key = completed years of ownership, value = tax rate
+rates_by_holding_years:
+  1: 0.40
+  2: 0.38
+  3: 0.36
+  4: 0.34
+  5: 0.32
+  6: 0.30
+  7: 0.28
+  8: 0.26
+  9: 0.24
+  10: 0.22
+  11: 0.20
+  12: 0.19
+  13: 0.18
+  14: 0.17
+  15: 0.16
+  16: 0.15
+  17: 0.14
+  18: 0.13
+  19: 0.12
+  20: 0.11
+  21: 0.10
+  22: 0.09
+  23: 0.08
+  24: 0.07
+  25: 0.06
+
+# Properties held > 25 years
+min_rate: 0.05
+
+# No minimum taxable gain in AG
+minimum_taxable_gain: 0
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+# AG: uniform canton rate, no per-commune Steuerfuss for GGSt
+tax_model: "holding_period_flat"
+
+# No church tax in GGSt
+confessions: []

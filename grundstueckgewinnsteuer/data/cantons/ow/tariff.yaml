@@ -1,0 +1,30 @@
+# Obwalden Grundstückgewinnsteuer tariff
+# Source: StG OW
+
+# OW uses a simple proportional rate of 2% (einfache Steuer),
+# multiplied by the Steuerfuss (canton + commune).
+tax_model: "proportional_steuerfuss"
+
+base_rate: 0.02
+
+minimum_taxable_gain: 5000
+
+# Canton Steuerfuss: 3.15 Einheiten
+default_canton_steuerfuss: 3.15
+
+# Surcharge for short holding (< 3 years)
+surcharge_threshold_months: 36
+surcharges:
+  - {max_months: 12, rate: 0.50}   # <1yr: +50%
+  - {max_months: 24, rate: 0.30}   # <2yr: +30%
+  - {max_months: 36, rate: 0.15}   # <3yr: +15%
+
+# No discounts for long holding
+discount_min_years: 0
+discounts: []
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+confessions: []

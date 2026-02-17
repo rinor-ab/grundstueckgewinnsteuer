@@ -1,0 +1,49 @@
+# Appenzell Ausserrhoden Grundstückgewinnsteuer tariff
+# Source: StG AR
+
+# AR uses a FLAT LINEAR rate of 30%
+tax_model: "proportional_with_adjustments"
+base_rate: 0.30
+
+minimum_taxable_gain: 3000
+
+# Gain rounded down to nearest CHF 500
+gain_rounding: 500
+
+# Surcharges for short holding
+surcharge_threshold_months: 48
+surcharges:
+  - {max_months: 12, rate: 0.35}   # <1yr: +35%
+  - {max_months: 24, rate: 0.20}   # <2yr: +20%
+  - {max_months: 36, rate: 0.10}   # <3yr: +10%
+  - {max_months: 48, rate: 0.05}   # <4yr: +5%
+
+# Discount: 2.5%/yr from yr10, max 50%
+discount_min_years: 10
+discounts:
+  - {years: 10, rate: 0.025}
+  - {years: 11, rate: 0.050}
+  - {years: 12, rate: 0.075}
+  - {years: 13, rate: 0.100}
+  - {years: 14, rate: 0.125}
+  - {years: 15, rate: 0.150}
+  - {years: 16, rate: 0.175}
+  - {years: 17, rate: 0.200}
+  - {years: 18, rate: 0.225}
+  - {years: 19, rate: 0.250}
+  - {years: 20, rate: 0.275}
+  - {years: 21, rate: 0.300}
+  - {years: 22, rate: 0.325}
+  - {years: 23, rate: 0.350}
+  - {years: 24, rate: 0.375}
+  - {years: 25, rate: 0.400}
+  - {years: 26, rate: 0.425}
+  - {years: 27, rate: 0.450}
+  - {years: 28, rate: 0.475}
+  - {years: 29, rate: 0.500}
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+confessions: []

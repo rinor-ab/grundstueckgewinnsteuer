@@ -1,0 +1,45 @@
+# Neuenburg Grundstückgewinnsteuer tariff
+# Source: ne.ch
+
+brackets:
+  - {limit: 5000, rate: 0.10}
+  - {limit: 10000, rate: 0.15}
+  - {limit: 30000, rate: 0.20}
+  - {limit: 50000, rate: 0.25}
+  - {limit: 75000, rate: 0.30}
+  - {limit: 100000, rate: 0.35}
+  - {limit: 135000, rate: 0.40}
+
+# Interesting: top rate (33%) is lower than the 40% bracket
+top_rate: 0.33
+
+minimum_taxable_gain: 5000
+
+# Surcharges for short holding
+surcharge_threshold_months: 48
+surcharges:
+  - {max_months: 12, rate: 0.40}   # <1yr: +40%
+  - {max_months: 24, rate: 0.30}   # <2yr: +30%
+  - {max_months: 36, rate: 0.20}   # <3yr: +20%
+  - {max_months: 48, rate: 0.10}   # <4yr: +10%
+
+# Discount: 6%/yr from yr5, max 60%
+discount_min_years: 5
+discounts:
+  - {years: 5, rate: 0.06}
+  - {years: 6, rate: 0.12}
+  - {years: 7, rate: 0.18}
+  - {years: 8, rate: 0.24}
+  - {years: 9, rate: 0.30}
+  - {years: 10, rate: 0.36}
+  - {years: 11, rate: 0.42}
+  - {years: 12, rate: 0.48}
+  - {years: 13, rate: 0.54}
+  - {years: 14, rate: 0.60}
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+tax_model: "canton_only"
+confessions: []

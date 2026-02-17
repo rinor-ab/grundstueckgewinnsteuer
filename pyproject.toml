@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grundstueckgewinnsteuer-ch"
+version = "0.1.0"
+description = "Production-grade Grundstückgewinnsteuer (real-estate capital gains tax) calculator for all Swiss cantons and communes."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "streamlit>=1.30",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[tool.setuptools.packages.find]
+include = ["grundstueckgewinnsteuer*"]
+
+[tool.setuptools.package-data]
+grundstueckgewinnsteuer = ["data/**/*.yaml", "data/**/*.json", "sources/*.md"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

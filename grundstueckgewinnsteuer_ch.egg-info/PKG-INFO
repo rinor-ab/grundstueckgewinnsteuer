@@ -1,0 +1,111 @@
+Metadata-Version: 2.4
+Name: grundstueckgewinnsteuer-ch
+Version: 0.1.0
+Summary: Production-grade Grundstückgewinnsteuer (real-estate capital gains tax) calculator for all Swiss cantons and communes.
+License-Expression: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: streamlit>=1.30
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+
+# Grundstückgewinnsteuer Calculator (CH)
+
+A production-grade **Grundstückgewinnsteuer** (real-estate capital gains tax) calculator for all Swiss cantons and communes, built in Python with a Streamlit UI.
+
+## Features
+
+- ✅ **Schaffhausen (SH)** – exact port of the [JS reference calculator](https://github.com/rinor-ab/steuerrechnerSHCH) with parity tests
+- ✅ **Zürich (ZH)** – communal-uniform tariff model
+- ✅ **Bern (BE)** – Steuerfuss model with gain-reduction discount
+- ✅ **Luzern (LU)** – income-tariff based with 4.2 Steuereinheiten
+- 🔧 Data-driven plugin framework for adding more cantons
+- 📊 Interactive Streamlit UI with detailed computation breakdown
+- 📥 JSON export of full computation results
+
+## Quick Start
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/<your-user>/grundstueckgewinnsteuer-ch.git
+cd grundstueckgewinnsteuer-ch
+
+# Install with dev dependencies
+pip install -e ".[dev]"
+```
+
+### Run Tests
+
+```bash
+pytest tests/ -v
+```
+
+### Lint
+
+```bash
+ruff check .
+```
+
+### Run Streamlit App
+
+```bash
+streamlit run streamlit_app/app.py
+```
+
+The app will open at `http://localhost:8501`.
+
+## Deploy to Streamlit Cloud
+
+1. Push the repo to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect your GitHub repo
+4. Set the main file path to `streamlit_app/app.py`
+5. Deploy
+
+## Project Structure
+
+```
+grundstueckgewinnsteuer/
+├── models.py              # Pydantic domain models (TaxInputs, TaxResult)
+├── engine/
+│   ├── base.py            # Abstract CantonEngine interface
+│   ├── tariff.py          # Generic bracket evaluator + helpers
+│   └── rounding.py        # to_fixed_2, round_up_to_005
+├── cantons/
+│   ├── registry.py        # Canton engine registry
+│   ├── sh.py              # Schaffhausen (JS-parity port)
+│   ├── zh.py              # Zürich
+│   ├── be.py              # Bern
+│   └── lu.py              # Luzern
+├── data/
+│   ├── cantons/<code>/    # Tariff YAML per canton
+│   └── communes/<code>/   # Steuerfuss JSON per canton
+├── sources/               # Official source docs per canton
+streamlit_app/
+│   └── app.py             # Streamlit UI
+tests/                     # pytest suite
+```
+
+## Adding a New Canton
+
+See [CANTON_CHECKLIST.md](CANTON_CHECKLIST.md) for the step-by-step template.
+
+## Official Sources
+
+Each canton has official sources documented in `grundstueckgewinnsteuer/sources/<canton>.md` with links to tax authority pages, laws, and leaflets.
+
+## Architecture
+
+- **Data-driven**: Tax rules are stored in YAML/JSON, not hardcoded
+- **Decimal arithmetic**: All monetary calculations use `Decimal` for deterministic results
+- **Plugin pattern**: Each canton implements `CantonEngine` and is auto-registered
+- **Parity-tested**: Schaffhausen engine has 16+ golden-master tests against the JS reference
+
+## License
+
+MIT

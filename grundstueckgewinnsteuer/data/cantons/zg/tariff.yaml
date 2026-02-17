@@ -1,0 +1,39 @@
+# Zug Grundstückgewinnsteuer tariff
+# Source: StG ZG §§ 187ff (Steuergesetz Zug)
+# Source: https://www.zg.ch/behoerden/finanzdirektion/steuerverwaltung/grundstueckgewinnsteuer
+# Source: https://www.estv2.admin.ch/stp/kb/zg-de.pdf (ESTV Kantonsblatt)
+
+# ZG uses a YIELD-BASED rate: the tax rate equals the annual yield
+# of the property transaction, clamped between min_rate and max_rate.
+#
+# Formula:
+#   total_yield = gain * 100 / acquisition_costs  (in percent)
+#   if holding <= 5 years:
+#     annual_yield = total_yield * 12 / holding_months
+#   else:
+#     annual_yield = total_yield / holding_years
+#
+#   rate = clamp(annual_yield, min_rate, max_rate)
+#   tax = gain * rate / 100
+
+tax_model: "yield_based"
+
+# Minimum taxable gain
+minimum_taxable_gain: 5000
+
+# Rate bounds
+min_rate: 10   # Minimum 10%
+max_rate: 60   # Maximum 60% (for short holding)
+
+# Max rate reduction for long holding
+# From year 12: max_rate reduces by 2.5pp/year, max reduction 35pp (floor 25%)
+max_rate_reduction_start_year: 12
+max_rate_reduction_per_year: 2.5
+max_rate_reduction_max: 35.0
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+# No church tax in GGSt
+confessions: []

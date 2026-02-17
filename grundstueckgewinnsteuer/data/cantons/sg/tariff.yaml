@@ -1,0 +1,64 @@
+# St. Gallen Grundstückgewinnsteuer tariff
+# Source: StG SG Art. 130–141 (Steuergesetz St. Gallen)
+# Source: https://www.sg.ch/steuern-finanzen/steuern/grundstueckgewinnsteuer.html
+# Source: https://www.estv2.admin.ch/stp/kb/sg-de.pdf (ESTV Kantonsblatt)
+
+# Progressive brackets for "einfache Steuer" (Art. 140 StG SG)
+# Each bracket is INCREMENTAL (band-based), not cumulative.
+# Limit = cumulative upper bound of the band.
+brackets:
+  - {limit: 2200, rate: 0.00}       # First 2'200: 0%
+  - {limit: 5000, rate: 0.005}      # Next 2'800: 0.5%
+  - {limit: 7700, rate: 0.01}       # Next 2'700: 1%
+  - {limit: 9800, rate: 0.02}       # Next 2'100: 2%
+  - {limit: 11900, rate: 0.03}      # Next 2'100: 3%
+  - {limit: 14500, rate: 0.04}      # Next 2'600: 4%
+  - {limit: 18200, rate: 0.05}      # Next 3'700: 5%
+  - {limit: 25100, rate: 0.06}      # Next 6'900: 6%
+  - {limit: 34700, rate: 0.07}      # Next 9'600: 7%
+  - {limit: 50700, rate: 0.08}      # Next 16'000: 8%
+  - {limit: 71800, rate: 0.09}      # Next 21'100: 9%
+  - {limit: 248000, rate: 0.10}     # Next 176'200: 10%
+
+# Additional brackets for gains above 248k
+high_gain_brackets:
+  - {limit: 456000, rate: 0.105}    # Next 208'000: 10.5%
+  - {limit: 600000, rate: 0.11}     # Next 144'000: 11%
+
+# Gains >= 600'000: flat 10% on ENTIRE gain (overrides bracket computation)
+flat_rate_threshold: 600000
+flat_rate: 0.10
+
+# First CHF 2'200 are tax-free
+minimum_taxable_gain: 2200
+
+# Surcharges for short ownership — these are ADDITIVE percentage points
+# added to the effective tax rate, NOT multiplicative on the tax amount.
+surcharge_threshold_months: 60
+surcharges_by_year:
+  - {year: 1, rate: 0.05}   # 1st year: +5 percentage points
+  - {year: 2, rate: 0.04}   # 2nd year: +4 percentage points
+  - {year: 3, rate: 0.03}   # 3rd year: +3 percentage points
+  - {year: 4, rate: 0.02}   # 4th year: +2 percentage points
+  - {year: 5, rate: 0.01}   # 5th year: +1 percentage point
+
+# Discounts for long ownership (from year 17)
+# Two tiers based on gain amount
+discount_min_years: 17
+discount_per_year_low: 0.015    # 1.5% per year for gains < 500k
+discount_per_year_high: 0.01    # 1% per year for gains >= 500k
+discount_gain_threshold: 500000
+discount_max_low: 0.405         # Max 40.5% discount (at 44 years)
+discount_max_high: 0.20         # Max 20% discount (at 37 years)
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+# SG uses Steuerfuss model
+tax_model: "steuerfuss"
+
+# Placeholder Steuerfuss (TODO: load commune-specific data)
+default_steuerfuss: 100
+
+confessions: []

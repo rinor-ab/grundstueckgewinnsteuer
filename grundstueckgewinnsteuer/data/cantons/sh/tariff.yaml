@@ -1,0 +1,63 @@
+# Schaffhausen Grundstückgewinnsteuer tariff
+# Source: https://sh.ch/CMS/get/file/ca0d9d0b-64f9-45fc-9754-a186094ed97e (Berechnungstabelle)
+# Source: https://www.estv2.admin.ch/stp/kb/sh-de.pdf (Kantonsblatt ESTV)
+
+brackets:
+  - {limit: 2000, rate: 0.02}
+  - {limit: 4000, rate: 0.04}
+  - {limit: 6000, rate: 0.06}
+  - {limit: 8000, rate: 0.08}
+  - {limit: 15000, rate: 0.10}
+  - {limit: 30000, rate: 0.12}
+  - {limit: 45000, rate: 0.14}
+  - {limit: 60000, rate: 0.16}
+  - {limit: 80000, rate: 0.18}
+  - {limit: 100000, rate: 0.20}
+
+# Remaining amount above 100,000 CHF taxed at flat 15%
+top_rate: 0.15
+
+# Surcharges for ownership shorter than 60 months
+surcharge_threshold_months: 60
+surcharges_by_months:
+  - {max_months: 6, rate: 0.50}
+  - {max_months: 12, rate: 0.45}
+  - {max_months: 18, rate: 0.40}
+  - {max_months: 24, rate: 0.35}
+  - {max_months: 30, rate: 0.30}
+  - {max_months: 36, rate: 0.25}
+  - {max_months: 42, rate: 0.20}
+  - {max_months: 48, rate: 0.15}
+  - {max_months: 54, rate: 0.10}
+  - {max_months: 60, rate: 0.05}
+
+# Discounts for ownership >= 6 full years
+discount_min_years: 6
+discounts_by_years:
+  - {years: 6, rate: 0.05}
+  - {years: 7, rate: 0.10}
+  - {years: 8, rate: 0.15}
+  - {years: 9, rate: 0.20}
+  - {years: 10, rate: 0.25}
+  - {years: 11, rate: 0.30}
+  - {years: 12, rate: 0.35}
+  - {years: 13, rate: 0.40}
+  - {years: 14, rate: 0.45}
+  - {years: 15, rate: 0.50}
+  - {years: 16, rate: 0.55}
+  - {years: 17, rate: 0.60}
+
+# No minimum taxable gain in SH
+minimum_taxable_gain: 0
+
+# Rounding rules
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "round_up_to_005"
+
+# Confessions supported
+confessions:
+  - evangR
+  - roemK
+  - christK
+  - Andere

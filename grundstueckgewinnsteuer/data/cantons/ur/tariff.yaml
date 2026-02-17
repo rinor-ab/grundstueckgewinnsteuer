@@ -1,0 +1,47 @@
+# Uri Grundstückgewinnsteuer tariff
+# Source: StG UR
+# UR uses a degressive holding-period rate schedule similar to NW.
+# The rate ranges from 31% (<1yr) to 11% (20+yr).
+# There is also a progressive bracket structure for the tax amount,
+# but the primary driver is the holding-period rate.
+
+tax_model: "degressive_rate"
+
+minimum_taxable_gain: 7000
+
+# Freibetrag deducted from gain once per year
+freibetrag: 10000
+
+# Gain rounded down to CHF 100
+gain_rounding: 100
+
+# Rate by holding years
+rate_schedule:
+  - {max_years: 1, rate: 0.31}
+  - {max_years: 2, rate: 0.30}
+  - {max_years: 3, rate: 0.29}
+  - {max_years: 4, rate: 0.28}
+  - {max_years: 5, rate: 0.27}
+  - {max_years: 6, rate: 0.26}
+  - {max_years: 7, rate: 0.25}
+  - {max_years: 8, rate: 0.24}
+  - {max_years: 9, rate: 0.23}
+  - {max_years: 10, rate: 0.22}
+  - {max_years: 11, rate: 0.21}
+  - {max_years: 12, rate: 0.20}
+  - {max_years: 13, rate: 0.19}
+  - {max_years: 14, rate: 0.18}
+  - {max_years: 15, rate: 0.17}
+  - {max_years: 16, rate: 0.16}
+  - {max_years: 17, rate: 0.15}
+  - {max_years: 18, rate: 0.14}
+  - {max_years: 19, rate: 0.13}
+  - {max_years: 20, rate: 0.12}
+
+floor_rate: 0.11
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+confessions: []

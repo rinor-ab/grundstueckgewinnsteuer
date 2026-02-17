@@ -1,0 +1,23 @@
+# Genf Grundstückgewinnsteuer tariff
+# Source: LIPP GE (Loi sur l'imposition des personnes physiques)
+
+tax_model: "degressive_rate"
+
+minimum_taxable_gain: 0
+
+rate_schedule:
+  - {max_years: 2, rate: 0.50}
+  - {max_years: 4, rate: 0.40}
+  - {max_years: 6, rate: 0.30}
+  - {max_years: 8, rate: 0.20}
+  - {max_years: 10, rate: 0.15}
+  - {max_years: 25, rate: 0.10}
+
+# From 2025: 25+ years = 2%, previously 0%
+floor_rate: 0.02
+
+rounding:
+  simple_tax: "to_fixed_2"
+  shares: "to_fixed_2"
+
+confessions: []
