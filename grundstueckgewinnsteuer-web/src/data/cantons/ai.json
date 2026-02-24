@@ -1,0 +1,250 @@
+{
+  "brackets": [
+    {
+      "limit": 4000,
+      "rate": 0.1
+    },
+    {
+      "limit": 10000,
+      "rate": 0.15
+    },
+    {
+      "limit": 18000,
+      "rate": 0.2
+    },
+    {
+      "limit": 30000,
+      "rate": 0.25
+    },
+    {
+      "limit": 50000,
+      "rate": 0.3
+    },
+    {
+      "limit": 100000,
+      "rate": 0.35
+    }
+  ],
+  "top_rate": 0.4,
+  "minimum_taxable_gain": 4000,
+  "surcharge_threshold_months": 36,
+  "surcharges": [
+    {
+      "max_months": 1,
+      "rate": 0.36
+    },
+    {
+      "max_months": 2,
+      "rate": 0.35
+    },
+    {
+      "max_months": 3,
+      "rate": 0.34
+    },
+    {
+      "max_months": 4,
+      "rate": 0.33
+    },
+    {
+      "max_months": 5,
+      "rate": 0.32
+    },
+    {
+      "max_months": 6,
+      "rate": 0.31
+    },
+    {
+      "max_months": 7,
+      "rate": 0.3
+    },
+    {
+      "max_months": 8,
+      "rate": 0.29
+    },
+    {
+      "max_months": 9,
+      "rate": 0.28
+    },
+    {
+      "max_months": 10,
+      "rate": 0.27
+    },
+    {
+      "max_months": 11,
+      "rate": 0.26
+    },
+    {
+      "max_months": 12,
+      "rate": 0.25
+    },
+    {
+      "max_months": 13,
+      "rate": 0.24
+    },
+    {
+      "max_months": 14,
+      "rate": 0.23
+    },
+    {
+      "max_months": 15,
+      "rate": 0.22
+    },
+    {
+      "max_months": 16,
+      "rate": 0.21
+    },
+    {
+      "max_months": 17,
+      "rate": 0.2
+    },
+    {
+      "max_months": 18,
+      "rate": 0.19
+    },
+    {
+      "max_months": 19,
+      "rate": 0.18
+    },
+    {
+      "max_months": 20,
+      "rate": 0.17
+    },
+    {
+      "max_months": 21,
+      "rate": 0.16
+    },
+    {
+      "max_months": 22,
+      "rate": 0.15
+    },
+    {
+      "max_months": 23,
+      "rate": 0.14
+    },
+    {
+      "max_months": 24,
+      "rate": 0.13
+    },
+    {
+      "max_months": 25,
+      "rate": 0.12
+    },
+    {
+      "max_months": 26,
+      "rate": 0.11
+    },
+    {
+      "max_months": 27,
+      "rate": 0.1
+    },
+    {
+      "max_months": 28,
+      "rate": 0.09
+    },
+    {
+      "max_months": 29,
+      "rate": 0.08
+    },
+    {
+      "max_months": 30,
+      "rate": 0.07
+    },
+    {
+      "max_months": 31,
+      "rate": 0.06
+    },
+    {
+      "max_months": 32,
+      "rate": 0.05
+    },
+    {
+      "max_months": 33,
+      "rate": 0.04
+    },
+    {
+      "max_months": 34,
+      "rate": 0.03
+    },
+    {
+      "max_months": 35,
+      "rate": 0.02
+    },
+    {
+      "max_months": 36,
+      "rate": 0.01
+    }
+  ],
+  "discount_min_years": 5,
+  "discounts": [
+    {
+      "years": 5,
+      "rate": 0.05
+    },
+    {
+      "years": 6,
+      "rate": 0.08
+    },
+    {
+      "years": 7,
+      "rate": 0.11
+    },
+    {
+      "years": 8,
+      "rate": 0.14
+    },
+    {
+      "years": 9,
+      "rate": 0.17
+    },
+    {
+      "years": 10,
+      "rate": 0.2
+    },
+    {
+      "years": 11,
+      "rate": 0.23
+    },
+    {
+      "years": 12,
+      "rate": 0.26
+    },
+    {
+      "years": 13,
+      "rate": 0.29
+    },
+    {
+      "years": 14,
+      "rate": 0.32
+    },
+    {
+      "years": 15,
+      "rate": 0.35
+    },
+    {
+      "years": 16,
+      "rate": 0.38
+    },
+    {
+      "years": 17,
+      "rate": 0.41
+    },
+    {
+      "years": 18,
+      "rate": 0.44
+    },
+    {
+      "years": 19,
+      "rate": 0.47
+    },
+    {
+      "years": 20,
+      "rate": 0.5
+    }
+  ],
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "tax_model": "canton_only",
+  "confessions": []
+}

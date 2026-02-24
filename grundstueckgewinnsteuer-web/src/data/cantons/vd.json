@@ -1,0 +1,108 @@
+{
+  "tax_model": "degressive_rate",
+  "minimum_taxable_gain": 5000,
+  "rate_schedule": [
+    {
+      "max_years": 1,
+      "rate": 0.3
+    },
+    {
+      "max_years": 2,
+      "rate": 0.27
+    },
+    {
+      "max_years": 3,
+      "rate": 0.24
+    },
+    {
+      "max_years": 4,
+      "rate": 0.22
+    },
+    {
+      "max_years": 5,
+      "rate": 0.2
+    },
+    {
+      "max_years": 6,
+      "rate": 0.18
+    },
+    {
+      "max_years": 7,
+      "rate": 0.17
+    },
+    {
+      "max_years": 8,
+      "rate": 0.16
+    },
+    {
+      "max_years": 9,
+      "rate": 0.155
+    },
+    {
+      "max_years": 10,
+      "rate": 0.15
+    },
+    {
+      "max_years": 11,
+      "rate": 0.14
+    },
+    {
+      "max_years": 12,
+      "rate": 0.135
+    },
+    {
+      "max_years": 13,
+      "rate": 0.13
+    },
+    {
+      "max_years": 14,
+      "rate": 0.125
+    },
+    {
+      "max_years": 15,
+      "rate": 0.12
+    },
+    {
+      "max_years": 16,
+      "rate": 0.115
+    },
+    {
+      "max_years": 17,
+      "rate": 0.11
+    },
+    {
+      "max_years": 18,
+      "rate": 0.105
+    },
+    {
+      "max_years": 19,
+      "rate": 0.1
+    },
+    {
+      "max_years": 20,
+      "rate": 0.095
+    },
+    {
+      "max_years": 21,
+      "rate": 0.09
+    },
+    {
+      "max_years": 22,
+      "rate": 0.085
+    },
+    {
+      "max_years": 23,
+      "rate": 0.08
+    },
+    {
+      "max_years": 24,
+      "rate": 0.075
+    }
+  ],
+  "floor_rate": 0.07,
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "confessions": []
+}

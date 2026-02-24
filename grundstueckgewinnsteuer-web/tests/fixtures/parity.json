@@ -1,0 +1,555 @@
+[
+  {
+    "label": "SH_std_10yr",
+    "inputs": {
+      "canton": "SH",
+      "commune": "Schaffhausen",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "22500.00",
+      "totalTax": "35775"
+    }
+  },
+  {
+    "label": "SH_church",
+    "inputs": {
+      "canton": "SH",
+      "commune": "Schaffhausen",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {
+        "evangR": 1,
+        "roemK": 1
+      }
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "22500.00",
+      "totalTax": "38700.00"
+    }
+  },
+  {
+    "label": "SH_small",
+    "inputs": {
+      "canton": "SH",
+      "commune": "Schaffhausen",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "510000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "10000",
+      "simpleTax": "600.00",
+      "totalTax": "954"
+    }
+  },
+  {
+    "label": "ZH_15yr",
+    "inputs": {
+      "canton": "ZH",
+      "commune": "Zürich",
+      "taxYear": 2026,
+      "purchaseDate": "2010-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "300000",
+      "simpleTax": "71110.00",
+      "totalTax": "71110.00"
+    }
+  },
+  {
+    "label": "BE_7yr",
+    "inputs": {
+      "canton": "BE",
+      "commune": "Bern",
+      "taxYear": 2026,
+      "purchaseDate": "2018-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "350000",
+      "salePrice": "500000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "8859.90",
+      "totalTax": "8859.90"
+    }
+  },
+  {
+    "label": "LU_2yr",
+    "inputs": {
+      "canton": "LU",
+      "commune": "Luzern",
+      "taxYear": 2026,
+      "purchaseDate": "2023-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "600000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "100000",
+      "simpleTax": "8750.30",
+      "totalTax": "36751.26"
+    }
+  },
+  {
+    "label": "AG_20yr",
+    "inputs": {
+      "canton": "AG",
+      "commune": "Aarau",
+      "taxYear": 2026,
+      "purchaseDate": "2005-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "300000",
+      "salePrice": "500000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "22000.00",
+      "totalTax": "22000.00"
+    }
+  },
+  {
+    "label": "SG_6yr",
+    "inputs": {
+      "canton": "SG",
+      "commune": "St. Gallen",
+      "taxYear": 2026,
+      "purchaseDate": "2019-06-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "450000",
+      "salePrice": "600000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "12520.00",
+      "totalTax": "12520.00"
+    }
+  },
+  {
+    "label": "GR_3yr",
+    "inputs": {
+      "canton": "GR",
+      "commune": "Chur",
+      "taxYear": 2026,
+      "purchaseDate": "2022-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "650000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "19124.00",
+      "totalTax": "19124.00"
+    }
+  },
+  {
+    "label": "AI_5yr",
+    "inputs": {
+      "canton": "AI",
+      "commune": "Appenzell",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "300000",
+      "salePrice": "400000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "100000",
+      "simpleTax": "27930.00",
+      "totalTax": "27930.00"
+    }
+  },
+  {
+    "label": "SO_10yr",
+    "inputs": {
+      "canton": "SO",
+      "commune": "Solothurn",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "550000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "10436.80",
+      "totalTax": "10436.80"
+    }
+  },
+  {
+    "label": "GE_5yr",
+    "inputs": {
+      "canton": "GE",
+      "commune": "Genève",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "60000.00",
+      "totalTax": "60000.00"
+    }
+  },
+  {
+    "label": "NW_10yr",
+    "inputs": {
+      "canton": "NW",
+      "commune": "Stans",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "600000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "44000.00",
+      "totalTax": "44000.00"
+    }
+  },
+  {
+    "label": "TI_3yr",
+    "inputs": {
+      "canton": "TI",
+      "commune": "Lugano",
+      "taxYear": 2026,
+      "purchaseDate": "2022-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "600000",
+      "salePrice": "800000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "52000.00",
+      "totalTax": "52000.00"
+    }
+  },
+  {
+    "label": "VD_7yr",
+    "inputs": {
+      "canton": "VD",
+      "commune": "Lausanne",
+      "taxYear": 2026,
+      "purchaseDate": "2018-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "450000",
+      "salePrice": "600000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "24000.00",
+      "totalTax": "24000.00"
+    }
+  },
+  {
+    "label": "FR_5yr",
+    "inputs": {
+      "canton": "FR",
+      "commune": "Freiburg",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "650000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "27000.00",
+      "totalTax": "43200.00"
+    }
+  },
+  {
+    "label": "TG_10yr",
+    "inputs": {
+      "canton": "TG",
+      "commune": "Frauenfeld",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "550000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "48000.00",
+      "totalTax": "48000.00"
+    }
+  },
+  {
+    "label": "AR_5yr",
+    "inputs": {
+      "canton": "AR",
+      "commune": "Herisau",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "350000",
+      "salePrice": "500000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "45000.00",
+      "totalTax": "45000.00"
+    }
+  },
+  {
+    "label": "BS_10yr",
+    "inputs": {
+      "canton": "BS",
+      "commune": "Basel",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "68850.00",
+      "totalTax": "68850.00"
+    }
+  },
+  {
+    "label": "OW_5yr",
+    "inputs": {
+      "canton": "OW",
+      "commune": "Sarnen",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "500000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "100000",
+      "simpleTax": "6300.00",
+      "totalTax": "6300.00"
+    }
+  },
+  {
+    "label": "ZG_10yr",
+    "inputs": {
+      "canton": "ZG",
+      "commune": "Zug",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "20000.00",
+      "totalTax": "20000.00"
+    }
+  },
+  {
+    "label": "Zero_gain",
+    "inputs": {
+      "canton": "SH",
+      "commune": "Schaffhausen",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "500000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "0",
+      "simpleTax": "0",
+      "totalTax": "0"
+    }
+  },
+  {
+    "label": "SZ_7yr",
+    "inputs": {
+      "canton": "SZ",
+      "commune": "Schwyz",
+      "taxYear": 2026,
+      "purchaseDate": "2018-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "550000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "34221.60",
+      "totalTax": "34221.60"
+    }
+  },
+  {
+    "label": "GL_6yr",
+    "inputs": {
+      "canton": "GL",
+      "commune": "Glarus",
+      "taxYear": 2026,
+      "purchaseDate": "2019-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "350000",
+      "salePrice": "450000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "100000",
+      "simpleTax": "25300.00",
+      "totalTax": "25300.00"
+    }
+  },
+  {
+    "label": "UR_5yr",
+    "inputs": {
+      "canton": "UR",
+      "commune": "Altdorf",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "300000",
+      "salePrice": "450000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "140000",
+      "simpleTax": "36400.00",
+      "totalTax": "36400.00"
+    }
+  }
+]

@@ -1,0 +1,112 @@
+{
+    "engineVersion": "1.0.0",
+    "dataVersion": "2026-02-24",
+    "lastUpdated": "2026-02-24",
+    "description": "Grundstückgewinnsteuer tariff and commune data for all 26 Swiss cantons.",
+    "cantons": {
+        "SH": {
+            "source": "https://sh.ch/CMS/get/file/ca0d9d0b-64f9-45fc-9754-a186094ed97e",
+            "hasSteuerfuss": true
+        },
+        "ZH": {
+            "source": "https://www.estv2.admin.ch/stp/kb/zh-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "BE": {
+            "source": "https://www.estv2.admin.ch/stp/kb/be-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "LU": {
+            "source": "https://www.estv2.admin.ch/stp/kb/lu-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "AG": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ag-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "SG": {
+            "source": "https://www.estv2.admin.ch/stp/kb/sg-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "GR": {
+            "source": "https://www.estv2.admin.ch/stp/kb/gr-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "SO": {
+            "source": "https://www.estv2.admin.ch/stp/kb/so-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "SZ": {
+            "source": "https://www.estv2.admin.ch/stp/kb/sz-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "GL": {
+            "source": "https://www.estv2.admin.ch/stp/kb/gl-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "AI": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ai-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "VS": {
+            "source": "https://www.estv2.admin.ch/stp/kb/vs-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "JU": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ju-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "NE": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ne-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "NW": {
+            "source": "https://www.estv2.admin.ch/stp/kb/nw-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "TI": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ti-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "VD": {
+            "source": "https://www.estv2.admin.ch/stp/kb/vd-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "GE": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ge-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "FR": {
+            "source": "https://www.estv2.admin.ch/stp/kb/fr-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "UR": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ur-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "TG": {
+            "source": "https://www.estv2.admin.ch/stp/kb/tg-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "AR": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ar-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "BS": {
+            "source": "https://www.estv2.admin.ch/stp/kb/bs-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "BL": {
+            "source": "https://www.estv2.admin.ch/stp/kb/bl-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "OW": {
+            "source": "https://www.estv2.admin.ch/stp/kb/ow-de.pdf",
+            "hasSteuerfuss": false
+        },
+        "ZG": {
+            "source": "https://www.estv2.admin.ch/stp/kb/zg-de.pdf",
+            "hasSteuerfuss": false
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "tax_model": "degressive_rate",
+  "minimum_taxable_gain": 0,
+  "rate_schedule": [
+    {
+      "max_years": 2,
+      "rate": 0.5
+    },
+    {
+      "max_years": 4,
+      "rate": 0.4
+    },
+    {
+      "max_years": 6,
+      "rate": 0.3
+    },
+    {
+      "max_years": 8,
+      "rate": 0.2
+    },
+    {
+      "max_years": 10,
+      "rate": 0.15
+    },
+    {
+      "max_years": 25,
+      "rate": 0.1
+    }
+  ],
+  "floor_rate": 0.02,
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "confessions": []
+}

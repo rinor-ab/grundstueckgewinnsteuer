@@ -1,0 +1,101 @@
+{
+  "brackets": [
+    {
+      "limit": 2200,
+      "rate": 0.0
+    },
+    {
+      "limit": 5000,
+      "rate": 0.005
+    },
+    {
+      "limit": 7700,
+      "rate": 0.01
+    },
+    {
+      "limit": 9800,
+      "rate": 0.02
+    },
+    {
+      "limit": 11900,
+      "rate": 0.03
+    },
+    {
+      "limit": 14500,
+      "rate": 0.04
+    },
+    {
+      "limit": 18200,
+      "rate": 0.05
+    },
+    {
+      "limit": 25100,
+      "rate": 0.06
+    },
+    {
+      "limit": 34700,
+      "rate": 0.07
+    },
+    {
+      "limit": 50700,
+      "rate": 0.08
+    },
+    {
+      "limit": 71800,
+      "rate": 0.09
+    },
+    {
+      "limit": 248000,
+      "rate": 0.1
+    }
+  ],
+  "high_gain_brackets": [
+    {
+      "limit": 456000,
+      "rate": 0.105
+    },
+    {
+      "limit": 600000,
+      "rate": 0.11
+    }
+  ],
+  "flat_rate_threshold": 600000,
+  "flat_rate": 0.1,
+  "minimum_taxable_gain": 2200,
+  "surcharge_threshold_months": 60,
+  "surcharges_by_year": [
+    {
+      "year": 1,
+      "rate": 0.05
+    },
+    {
+      "year": 2,
+      "rate": 0.04
+    },
+    {
+      "year": 3,
+      "rate": 0.03
+    },
+    {
+      "year": 4,
+      "rate": 0.02
+    },
+    {
+      "year": 5,
+      "rate": 0.01
+    }
+  ],
+  "discount_min_years": 17,
+  "discount_per_year_low": 0.015,
+  "discount_per_year_high": 0.01,
+  "discount_gain_threshold": 500000,
+  "discount_max_low": 0.405,
+  "discount_max_high": 0.2,
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "tax_model": "steuerfuss",
+  "default_steuerfuss": 100,
+  "confessions": []
+}

@@ -1,0 +1,170 @@
+{
+  "brackets": [
+    {
+      "limit": 5000,
+      "rate": 0.1
+    },
+    {
+      "limit": 10000,
+      "rate": 0.15
+    },
+    {
+      "limit": 15000,
+      "rate": 0.2
+    },
+    {
+      "limit": 20000,
+      "rate": 0.25
+    }
+  ],
+  "top_rate": 0.3,
+  "minimum_taxable_gain": 5000,
+  "surcharge_threshold_months": 48,
+  "surcharges": [
+    {
+      "max_months": 12,
+      "rate": 0.3
+    },
+    {
+      "max_months": 24,
+      "rate": 0.2
+    },
+    {
+      "max_months": 36,
+      "rate": 0.15
+    },
+    {
+      "max_months": 48,
+      "rate": 0.1
+    }
+  ],
+  "discount_min_years": 5,
+  "discounts": [
+    {
+      "years": 5,
+      "rate": 0.05
+    },
+    {
+      "years": 6,
+      "rate": 0.08
+    },
+    {
+      "years": 7,
+      "rate": 0.11
+    },
+    {
+      "years": 8,
+      "rate": 0.14
+    },
+    {
+      "years": 9,
+      "rate": 0.17
+    },
+    {
+      "years": 10,
+      "rate": 0.2
+    },
+    {
+      "years": 11,
+      "rate": 0.23
+    },
+    {
+      "years": 12,
+      "rate": 0.26
+    },
+    {
+      "years": 13,
+      "rate": 0.29
+    },
+    {
+      "years": 14,
+      "rate": 0.32
+    },
+    {
+      "years": 15,
+      "rate": 0.35
+    },
+    {
+      "years": 16,
+      "rate": 0.38
+    },
+    {
+      "years": 17,
+      "rate": 0.41
+    },
+    {
+      "years": 18,
+      "rate": 0.44
+    },
+    {
+      "years": 19,
+      "rate": 0.47
+    },
+    {
+      "years": 20,
+      "rate": 0.5
+    },
+    {
+      "years": 21,
+      "rate": 0.53
+    },
+    {
+      "years": 22,
+      "rate": 0.56
+    },
+    {
+      "years": 23,
+      "rate": 0.59
+    },
+    {
+      "years": 24,
+      "rate": 0.62
+    },
+    {
+      "years": 25,
+      "rate": 0.65
+    },
+    {
+      "years": 26,
+      "rate": 0.68
+    },
+    {
+      "years": 27,
+      "rate": 0.71
+    },
+    {
+      "years": 28,
+      "rate": 0.74
+    },
+    {
+      "years": 29,
+      "rate": 0.77
+    },
+    {
+      "years": 30,
+      "rate": 0.8
+    },
+    {
+      "years": 31,
+      "rate": 0.83
+    },
+    {
+      "years": 32,
+      "rate": 0.86
+    },
+    {
+      "years": 33,
+      "rate": 0.89
+    },
+    {
+      "years": 34,
+      "rate": 0.9
+    }
+  ],
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "tax_model": "canton_only",
+  "confessions": []
+}

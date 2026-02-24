@@ -1,0 +1,14 @@
+{
+  "tax_model": "yield_based",
+  "minimum_taxable_gain": 5000,
+  "min_rate": 10,
+  "max_rate": 60,
+  "max_rate_reduction_start_year": 12,
+  "max_rate_reduction_per_year": 2.5,
+  "max_rate_reduction_max": 35.0,
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "confessions": []
+}

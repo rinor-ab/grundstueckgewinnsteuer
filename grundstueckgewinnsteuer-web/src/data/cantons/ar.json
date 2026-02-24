@@ -1,0 +1,113 @@
+{
+  "tax_model": "proportional_with_adjustments",
+  "base_rate": 0.3,
+  "minimum_taxable_gain": 3000,
+  "gain_rounding": 500,
+  "surcharge_threshold_months": 48,
+  "surcharges": [
+    {
+      "max_months": 12,
+      "rate": 0.35
+    },
+    {
+      "max_months": 24,
+      "rate": 0.2
+    },
+    {
+      "max_months": 36,
+      "rate": 0.1
+    },
+    {
+      "max_months": 48,
+      "rate": 0.05
+    }
+  ],
+  "discount_min_years": 10,
+  "discounts": [
+    {
+      "years": 10,
+      "rate": 0.025
+    },
+    {
+      "years": 11,
+      "rate": 0.05
+    },
+    {
+      "years": 12,
+      "rate": 0.075
+    },
+    {
+      "years": 13,
+      "rate": 0.1
+    },
+    {
+      "years": 14,
+      "rate": 0.125
+    },
+    {
+      "years": 15,
+      "rate": 0.15
+    },
+    {
+      "years": 16,
+      "rate": 0.175
+    },
+    {
+      "years": 17,
+      "rate": 0.2
+    },
+    {
+      "years": 18,
+      "rate": 0.225
+    },
+    {
+      "years": 19,
+      "rate": 0.25
+    },
+    {
+      "years": 20,
+      "rate": 0.275
+    },
+    {
+      "years": 21,
+      "rate": 0.3
+    },
+    {
+      "years": 22,
+      "rate": 0.325
+    },
+    {
+      "years": 23,
+      "rate": 0.35
+    },
+    {
+      "years": 24,
+      "rate": 0.375
+    },
+    {
+      "years": 25,
+      "rate": 0.4
+    },
+    {
+      "years": 26,
+      "rate": 0.425
+    },
+    {
+      "years": 27,
+      "rate": 0.45
+    },
+    {
+      "years": 28,
+      "rate": 0.475
+    },
+    {
+      "years": 29,
+      "rate": 0.5
+    }
+  ],
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "confessions": []
+}

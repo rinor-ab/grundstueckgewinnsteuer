@@ -1,0 +1,28 @@
+{
+  "tax_model": "proportional_steuerfuss",
+  "base_rate": 0.02,
+  "minimum_taxable_gain": 5000,
+  "default_canton_steuerfuss": 3.15,
+  "surcharge_threshold_months": 36,
+  "surcharges": [
+    {
+      "max_months": 12,
+      "rate": 0.5
+    },
+    {
+      "max_months": 24,
+      "rate": 0.3
+    },
+    {
+      "max_months": 36,
+      "rate": 0.15
+    }
+  ],
+  "discount_min_years": 0,
+  "discounts": [],
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "confessions": []
+}

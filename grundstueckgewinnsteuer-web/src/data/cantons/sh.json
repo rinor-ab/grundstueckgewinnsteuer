@@ -1,0 +1,150 @@
+{
+  "brackets": [
+    {
+      "limit": 2000,
+      "rate": 0.02
+    },
+    {
+      "limit": 4000,
+      "rate": 0.04
+    },
+    {
+      "limit": 6000,
+      "rate": 0.06
+    },
+    {
+      "limit": 8000,
+      "rate": 0.08
+    },
+    {
+      "limit": 15000,
+      "rate": 0.1
+    },
+    {
+      "limit": 30000,
+      "rate": 0.12
+    },
+    {
+      "limit": 45000,
+      "rate": 0.14
+    },
+    {
+      "limit": 60000,
+      "rate": 0.16
+    },
+    {
+      "limit": 80000,
+      "rate": 0.18
+    },
+    {
+      "limit": 100000,
+      "rate": 0.2
+    }
+  ],
+  "top_rate": 0.15,
+  "surcharge_threshold_months": 60,
+  "surcharges_by_months": [
+    {
+      "max_months": 6,
+      "rate": 0.5
+    },
+    {
+      "max_months": 12,
+      "rate": 0.45
+    },
+    {
+      "max_months": 18,
+      "rate": 0.4
+    },
+    {
+      "max_months": 24,
+      "rate": 0.35
+    },
+    {
+      "max_months": 30,
+      "rate": 0.3
+    },
+    {
+      "max_months": 36,
+      "rate": 0.25
+    },
+    {
+      "max_months": 42,
+      "rate": 0.2
+    },
+    {
+      "max_months": 48,
+      "rate": 0.15
+    },
+    {
+      "max_months": 54,
+      "rate": 0.1
+    },
+    {
+      "max_months": 60,
+      "rate": 0.05
+    }
+  ],
+  "discount_min_years": 6,
+  "discounts_by_years": [
+    {
+      "years": 6,
+      "rate": 0.05
+    },
+    {
+      "years": 7,
+      "rate": 0.1
+    },
+    {
+      "years": 8,
+      "rate": 0.15
+    },
+    {
+      "years": 9,
+      "rate": 0.2
+    },
+    {
+      "years": 10,
+      "rate": 0.25
+    },
+    {
+      "years": 11,
+      "rate": 0.3
+    },
+    {
+      "years": 12,
+      "rate": 0.35
+    },
+    {
+      "years": 13,
+      "rate": 0.4
+    },
+    {
+      "years": 14,
+      "rate": 0.45
+    },
+    {
+      "years": 15,
+      "rate": 0.5
+    },
+    {
+      "years": 16,
+      "rate": 0.55
+    },
+    {
+      "years": 17,
+      "rate": 0.6
+    }
+  ],
+  "minimum_taxable_gain": 0,
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "round_up_to_005"
+  },
+  "confessions": [
+    "evangR",
+    "roemK",
+    "christK",
+    "Andere"
+  ]
+}

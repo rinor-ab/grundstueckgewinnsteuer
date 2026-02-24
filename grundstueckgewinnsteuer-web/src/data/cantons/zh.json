@@ -1,0 +1,114 @@
+{
+  "brackets": [
+    {
+      "limit": 4000,
+      "rate": 0.1
+    },
+    {
+      "limit": 10000,
+      "rate": 0.15
+    },
+    {
+      "limit": 18000,
+      "rate": 0.2
+    },
+    {
+      "limit": 30000,
+      "rate": 0.25
+    },
+    {
+      "limit": 50000,
+      "rate": 0.3
+    },
+    {
+      "limit": 100000,
+      "rate": 0.35
+    }
+  ],
+  "top_rate": 0.4,
+  "minimum_taxable_gain": 5000,
+  "surcharge_threshold_months": 24,
+  "surcharges_by_months": [
+    {
+      "max_months": 12,
+      "rate": 0.5
+    },
+    {
+      "max_months": 24,
+      "rate": 0.25
+    }
+  ],
+  "discount_min_years": 5,
+  "discounts_by_years": [
+    {
+      "years": 5,
+      "rate": 0.05
+    },
+    {
+      "years": 6,
+      "rate": 0.08
+    },
+    {
+      "years": 7,
+      "rate": 0.11
+    },
+    {
+      "years": 8,
+      "rate": 0.14
+    },
+    {
+      "years": 9,
+      "rate": 0.17
+    },
+    {
+      "years": 10,
+      "rate": 0.2
+    },
+    {
+      "years": 11,
+      "rate": 0.23
+    },
+    {
+      "years": 12,
+      "rate": 0.26
+    },
+    {
+      "years": 13,
+      "rate": 0.29
+    },
+    {
+      "years": 14,
+      "rate": 0.32
+    },
+    {
+      "years": 15,
+      "rate": 0.35
+    },
+    {
+      "years": 16,
+      "rate": 0.38
+    },
+    {
+      "years": 17,
+      "rate": 0.41
+    },
+    {
+      "years": 18,
+      "rate": 0.44
+    },
+    {
+      "years": 19,
+      "rate": 0.47
+    },
+    {
+      "years": 20,
+      "rate": 0.5
+    }
+  ],
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "tax_model": "communal_uniform",
+  "confessions": []
+}

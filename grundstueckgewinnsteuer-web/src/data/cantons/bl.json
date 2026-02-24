@@ -1,0 +1,32 @@
+{
+  "tax_model": "formula_progressive",
+  "rate_tiers": [
+    {
+      "up_to": 30000,
+      "base_rate": 0.03,
+      "increment_per_100": 0.0003
+    },
+    {
+      "up_to": 70000,
+      "base_rate": 0.12,
+      "increment_per_100": 0.0002
+    },
+    {
+      "up_to": 120000,
+      "base_rate": 0.2,
+      "increment_per_100": 0.0001
+    }
+  ],
+  "max_rate": 0.25,
+  "minimum_taxable_gain": 0,
+  "surcharge_threshold_months": 60,
+  "surcharge_per_month": 0.01667,
+  "self_use_discount_start_year": 20,
+  "self_use_discount_per_year": 5000,
+  "self_use_discount_max": 50000,
+  "rounding": {
+    "simple_tax": "to_fixed_2",
+    "shares": "to_fixed_2"
+  },
+  "confessions": []
+}
