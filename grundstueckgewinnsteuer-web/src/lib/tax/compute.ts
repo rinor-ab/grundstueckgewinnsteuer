@@ -12,6 +12,7 @@ import { computeDegressive } from "./engines/degressive";
 import { computeFlatRate } from "./engines/flat-rate";
 import { computeSteuerfuss } from "./engines/steuerfuss";
 import { computeYieldRate } from "./engines/yield-rate";
+import shSteuerfuesse from "@/data/communes/sh/steuerfuesse.json";
 
 /**
  * Compute Grundstückgewinnsteuer for any Swiss canton.
@@ -33,8 +34,7 @@ export function computeTax(inputs: TaxInputs): TaxResult {
     // Load SH Steuerfuss data for progressive cantons that need it
     let steuerfussData: Record<string, Array<Record<string, string>>> | undefined;
     if (meta.engineType === "progressive" && meta.hasSteuerfussData && canton === "SH") {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        steuerfussData = require("@/data/communes/sh/steuerfuesse.json");
+        steuerfussData = shSteuerfuesse as unknown as Record<string, Array<Record<string, string>>>;
     }
 
     switch (meta.engineType) {

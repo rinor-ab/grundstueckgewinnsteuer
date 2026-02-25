@@ -37,6 +37,9 @@ export default function RootLayout({
                                     </h1>
                                     <p className="text-xs text-muted-foreground">Schweizer Steuerrechner</p>
                                 </div>
+                                <span className="hidden md:inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">
+                                    ✓ Kantonale Steuergesetze 2026
+                                </span>
                             </div>
                             <nav className="hidden items-center gap-6 sm:flex">
                                 <a
@@ -71,8 +74,12 @@ export default function RootLayout({
                                 <p className="text-xs text-muted-foreground">
                                     © 2026 Grundstückgewinnsteuer Rechner • Engine v1.0.0
                                 </p>
-                                <p className="text-xs text-muted-foreground">
-                                    ⚠️ Keine Rechtsberatung. Massgebend sind die kantonalen Steuergesetze.
+                                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
+                                        🔒 Lokal im Browser — keine Daten gespeichert
+                                    </span>
+                                    <span>•</span>
+                                    ⚠️ Keine Rechtsberatung — massgebend sind die kantonalen Steuergesetze
                                 </p>
                             </div>
                         </div>

@@ -7,6 +7,7 @@
 
 import type { CantonTariff } from "./types";
 import { CANTON_META } from "./canton-meta";
+import shSteuerfuesse from "@/data/communes/sh/steuerfuesse.json";
 
 // Static imports for all canton tariff data
 // These are JSON files and tree-shaken by the bundler per-route
@@ -89,8 +90,7 @@ export function getCommunes(canton: string, taxYear: number): string[] {
     if (!meta) return [];
 
     if (meta.hasSteuerfussData && canton === "SH") {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const sfData = require("@/data/communes/sh/steuerfuesse.json");
+        const sfData = shSteuerfuesse as unknown as Record<string, Array<Record<string, string>>>;
         const yearData = sfData[String(taxYear)] ?? [];
         return yearData
             .filter((e: Record<string, string>) => e.Gemeinde !== "Kanton")

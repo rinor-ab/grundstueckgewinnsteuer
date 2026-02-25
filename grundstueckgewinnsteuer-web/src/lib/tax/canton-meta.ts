@@ -13,6 +13,10 @@ export interface CantonMeta {
     availableYears: number[];
     confessions: string[];
     hasSteuerfussData?: boolean;
+    /** Hex accent colour for UI theming (derived from cantonal heraldry) */
+    accentColor: string;
+    /** Human-readable German label for the calculation model */
+    modelLabel: string;
 }
 
 export const CANTON_META: Record<string, CantonMeta> = {
@@ -24,6 +28,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "christK", "Andere"],
         hasSteuerfussData: true,
+        accentColor: "#D4A300",
+        modelLabel: "Progressive Steuertabelle",
     },
     ZH: {
         code: "ZH",
@@ -32,6 +38,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Zürich", "Winterthur", "Uster", "Dübendorf", "Dietikon", "Wetzikon", "Bülach"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "christK", "Andere"],
+        accentColor: "#0057B8",
+        modelLabel: "Progressive Steuertabelle",
     },
     BE: {
         code: "BE",
@@ -40,6 +48,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Bern", "Biel/Bienne", "Thun", "Köniz", "Burgdorf", "Langenthal"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "christK", "Andere"],
+        accentColor: "#D52B1E",
+        modelLabel: "Progressive Steuertabelle",
     },
     LU: {
         code: "LU",
@@ -48,6 +58,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Luzern", "Emmen", "Kriens", "Horw", "Ebikon", "Sursee"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "christK", "Andere"],
+        accentColor: "#1E4D8C",
+        modelLabel: "Progressive Steuertabelle",
     },
     AG: {
         code: "AG",
@@ -56,6 +68,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Aarau", "Baden", "Wettingen", "Brugg", "Lenzburg", "Rheinfelden"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "christK", "Andere"],
+        accentColor: "#0057B8",
+        modelLabel: "Progressive Steuertabelle",
     },
     SG: {
         code: "SG",
@@ -64,6 +78,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["St. Gallen", "Rapperswil-Jona", "Wil", "Gossau", "Rorschach"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "Andere"],
+        accentColor: "#1B7340",
+        modelLabel: "Progressive Steuertabelle",
     },
     GR: {
         code: "GR",
@@ -72,6 +88,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Chur", "Davos", "Ilanz/Glion", "Landquart", "St. Moritz"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "Andere"],
+        accentColor: "#4a4a4a",
+        modelLabel: "Progressive Steuertabelle",
     },
     SO: {
         code: "SO",
@@ -80,6 +98,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Solothurn", "Olten", "Grenchen", "Zuchwil", "Derendingen"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#D52B1E",
+        modelLabel: "Progressive Steuertabelle",
     },
     SZ: {
         code: "SZ",
@@ -88,6 +108,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Schwyz", "Küssnacht", "Freienbach", "Einsiedeln", "Wollerau"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#D52B1E",
+        modelLabel: "Progressive Steuertabelle",
     },
     GL: {
         code: "GL",
@@ -96,6 +118,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Glarus", "Glarus Nord", "Glarus Süd"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#333333",
+        modelLabel: "Progressive Steuertabelle",
     },
     AI: {
         code: "AI",
@@ -104,6 +128,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Appenzell", "Schwende-Rüte", "Oberegg", "Rüte", "Gonten", "Schlatt-Haslen"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#1a1a1a",
+        modelLabel: "Progressive Steuertabelle",
     },
     VS: {
         code: "VS",
@@ -112,6 +138,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Sion", "Brig-Glis", "Visp", "Sierre", "Martigny", "Monthey"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#C41E1E",
+        modelLabel: "Progressive Steuertabelle",
     },
     JU: {
         code: "JU",
@@ -120,6 +148,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Delémont", "Porrentruy", "Saignelégier", "Haute-Sorne", "Val Terbi"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#C41E1E",
+        modelLabel: "Progressive Steuertabelle",
     },
     NE: {
         code: "NE",
@@ -128,6 +158,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Neuchâtel", "La Chaux-de-Fonds", "Le Locle", "Val-de-Travers", "Boudry"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#1B7340",
+        modelLabel: "Progressive Steuertabelle",
     },
 
     // --- Degressive engines ---
@@ -138,6 +170,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Stans", "Hergiswil", "Buochs", "Stansstad", "Beckenried", "Ennetmoos"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#B71C1C",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
     TI: {
         code: "TI",
@@ -146,6 +180,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Lugano", "Bellinzona", "Locarno", "Mendrisio", "Chiasso"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#D52B1E",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
     VD: {
         code: "VD",
@@ -154,6 +190,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Lausanne", "Yverdon-les-Bains", "Montreux", "Renens", "Nyon"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#1B7340",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
     GE: {
         code: "GE",
@@ -162,6 +200,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Genève", "Carouge", "Lancy", "Vernier", "Meyrin", "Onex"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#D52B1E",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
     FR: {
         code: "FR",
@@ -170,6 +210,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Freiburg", "Bulle", "Villars-sur-Glâne", "Düdingen", "Murten"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#1a1a1a",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
     UR: {
         code: "UR",
@@ -178,6 +220,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Altdorf", "Erstfeld", "Schattdorf", "Bürglen", "Flüelen"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#E8A500",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
 
     // --- Flat-rate engines ---
@@ -188,6 +232,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Frauenfeld", "Kreuzlingen", "Arbon", "Amriswil", "Weinfelden"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#1B7340",
+        modelLabel: "Einfache Steuer × Steuerfuss",
     },
     AR: {
         code: "AR",
@@ -196,6 +242,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Herisau", "Teufen", "Speicher", "Heiden", "Urnäsch"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#2a2a2a",
+        modelLabel: "Pauschalsatz × Steuerfuss",
     },
 
     // --- Steuerfuss engines ---
@@ -206,6 +254,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Basel", "Riehen", "Bettingen"],
         availableYears: [2023, 2024, 2025, 2026],
         confessions: [],
+        accentColor: "#1a1a1a",
+        modelLabel: "Einfache Steuer × Steuerfuss",
     },
     BL: {
         code: "BL",
@@ -214,6 +264,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Liestal", "Allschwil", "Reinach", "Muttenz", "Pratteln", "Binningen"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#C41E1E",
+        modelLabel: "Einfache Steuer × Steuerfuss",
     },
     OW: {
         code: "OW",
@@ -222,6 +274,8 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Sarnen", "Kerns", "Sachseln", "Alpnach", "Giswil", "Lungern", "Engelberg"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#C62828",
+        modelLabel: "Einfache Steuer × Steuerfuss",
     },
 
     // --- Yield-rate engine ---
@@ -232,5 +286,7 @@ export const CANTON_META: Record<string, CantonMeta> = {
         communes: ["Zug", "Baar", "Cham", "Risch", "Steinhausen"],
         availableYears: [2024, 2025, 2026],
         confessions: [],
+        accentColor: "#0057B8",
+        modelLabel: "Ertragswertsatz-Modell",
     },
 };

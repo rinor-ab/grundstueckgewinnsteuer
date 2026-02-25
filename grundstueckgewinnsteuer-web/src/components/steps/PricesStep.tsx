@@ -1,0 +1,80 @@
+"use client";
+
+import { DollarSign, TrendingUp } from "lucide-react";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { CurrencyInput } from "@/components/CurrencyInput";
+import { ContextualWarning } from "@/components/ContextualWarning";
+import type { FormState } from "@/hooks/use-wizard";
+
+interface PricesStepProps {
+    form: FormState;
+    rawGain: number;
+    setField: (field: keyof FormState, value: unknown) => void;
+}
+
+export function PricesStep({ form, rawGain, setField }: PricesStepProps) {
+    const inputClass =
+        "w-full rounded-xl border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
+
+    return (
+        <div className="space-y-6">
+            {/* Question */}
+            <div>
+                <div className="mb-1 flex items-center gap-2 text-primary">
+                    <DollarSign size={18} />
+                    <span className="text-xs font-semibold uppercase tracking-widest">Schritt 3</span>
+                </div>
+                <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                    Wie hoch war der Kauf- und Verkaufspreis?
+                </h2>
+                <p className="mt-1.5 text-sm text-muted-foreground">
+                    Die Differenz bestimmt den steuerbaren Grundstückgewinn.
+                </p>
+            </div>
+
+            {/* Price inputs */}
+            <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Kaufpreis</label>
+                    <CurrencyInput
+                        id="purchase-price"
+                        className={inputClass}
+                        value={form.purchasePrice}
+                        placeholder="z.B. 500'000"
+                        onChange={(v) => setField("purchasePrice", v)}
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Verkaufspreis</label>
+                    <CurrencyInput
+                        id="sale-price"
+                        className={inputClass}
+                        value={form.salePrice}
+                        placeholder="z.B. 700'000"
+                        onChange={(v) => setField("salePrice", v)}
+                    />
+                </div>
+            </div>
+
+            {/* Live gain badge */}
+            <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
+                    <TrendingUp size={18} className="text-emerald-600" />
+                </div>
+                <div>
+                    <p className="text-sm font-semibold text-foreground">
+                        Grundstückgewinn:{" "}
+                        <AnimatedNumber value={rawGain} format="chf" className="text-emerald-600" />
+                    </p>
+                    <p className="text-xs text-muted-foreground">Vor Abzug von Kosten und Investitionen</p>
+                </div>
+            </div>
+
+            <ContextualWarning
+                variant="zero-gain"
+                message="Bei einem Gewinn von CHF 0 oder weniger fällt keine Grundstückgewinnsteuer an."
+                show={rawGain <= 0 && parseFloat(form.salePrice || "0") > 0}
+            />
+        </div>
+    );
+}
