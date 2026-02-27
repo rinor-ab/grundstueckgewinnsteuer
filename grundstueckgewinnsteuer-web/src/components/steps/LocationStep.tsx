@@ -19,7 +19,7 @@ const cantons = availableCantons();
 
 export function LocationStep({ form, communes, years, setField }: LocationStepProps) {
     const inputClass =
-        "w-full rounded-xl border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
+        "w-full rounded-md border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
 
     const meta = CANTON_META[form.canton];
 
@@ -85,18 +85,18 @@ export function LocationStep({ form, communes, years, setField }: LocationStepPr
 
                 {/* Facts row */}
                 <div className="flex flex-wrap gap-2">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
                         <Info size={11} />
                         Modell: {meta?.modelLabel ?? meta?.engineType}
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
                         Datenstand: {meta?.availableYears[meta.availableYears.length - 1] ?? "—"}
                     </span>
                 </div>
             </div>
 
             {/* Interactive map */}
-            <div className="rounded-xl border border-border/60 bg-slate-50/50 p-3">
+            <div className="rounded-md border border-border/60 bg-muted/30 p-3">
                 <CantonMap
                     selectedCanton={form.canton}
                     onSelect={(code) => {

@@ -24,6 +24,15 @@
     --input: 40 20% 90%;
     --ring: 35 40% 45%;
     --radius: 0.25rem;
+
+    /* TP brand chart palette */
+    --brand-navy: #1C2333;
+    --brand-gold: #8B6F47;
+    --brand-gold-light: #A68B5B;
+    --brand-sage: #5B7B6A;
+    --brand-terracotta: #C07056;
+    --brand-warm: #D4C4A8;
+    --brand-slate: #6B7280;
   }
 
   .dark {
@@ -47,6 +56,38 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
+}
+
+/* Custom range slider for brand consistency */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: hsl(var(--muted));
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: hsl(var(--accent));
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: hsl(var(--accent));
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 @layer base {

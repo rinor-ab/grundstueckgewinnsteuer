@@ -26,7 +26,7 @@ export function DeductionsStep({
     setConfessions,
 }: DeductionsStepProps) {
     const inputClass =
-        "w-full rounded-xl border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
+        "w-full rounded-md border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
 
     const totalDeductions =
         parseFloat(form.acquisitionCosts || "0") +
@@ -99,9 +99,9 @@ export function DeductionsStep({
 
             {/* Total deductions hint */}
             {totalDeductions > 0 && (
-                <div className="flex items-center gap-2 rounded-xl bg-blue-50 px-4 py-3">
-                    <Info size={16} className="text-blue-500" />
-                    <p className="text-sm text-blue-800">
+                <div className="flex items-center gap-2 rounded-md bg-accent/5 px-4 py-3 border border-accent/15">
+                    <Info size={16} className="text-accent" />
+                    <p className="text-sm text-foreground">
                         Total Abzüge: CHF{" "}
                         {totalDeductions.toLocaleString("de-CH", { minimumFractionDigits: 0 })}
                     </p>
@@ -110,7 +110,7 @@ export function DeductionsStep({
 
             {/* Church tax — conditional */}
             {cantonConfessions.length > 0 && (
-                <div className="space-y-4 rounded-xl border border-border/60 bg-slate-50/50 p-5">
+                <div className="space-y-4 rounded-md border border-border/60 bg-muted/30 p-5">
                     <div>
                         <h3 className="text-sm font-semibold text-foreground">Kirchensteuer</h3>
                         <p className="text-xs text-muted-foreground">

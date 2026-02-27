@@ -45,7 +45,7 @@ export function ScenarioSlider({ salePrice, currentTax, onSimulate }: ScenarioSl
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm"
+            className="rounded-xl border border-border/60 bg-white p-5 shadow-sm"
         >
             <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-foreground">
                 <SlidersHorizontal size={16} className="text-primary" />

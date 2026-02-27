@@ -59,7 +59,7 @@ export function WaterfallChart({ result, purchasePrice, salePrice, deductions }:
     const totalHeight = bars.length * (barHeight + gap);
 
     return (
-        <div className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-border/60 bg-white p-5 shadow-sm">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Gewinnfluss
             </h3>
@@ -74,12 +74,12 @@ export function WaterfallChart({ result, purchasePrice, salePrice, deductions }:
                         const barW = (Math.abs(bar.value) / maxVal) * chartWidth;
                         const color =
                             bar.type === "negative"
-                                ? "#f87171" // red-400
+                                ? "var(--brand-terracotta)"
                                 : bar.type === "total"
                                     ? bar.label.startsWith("→")
-                                        ? "#6366f1" // indigo-500
-                                        : "#34d399" // emerald-400
-                                    : "#3b82f6"; // blue-500
+                                        ? "var(--brand-navy)"
+                                        : "var(--brand-sage)"
+                                    : "var(--brand-gold)";
                         const sign = bar.value < 0 ? "−" : bar.type === "total" ? "" : "";
 
                         return (

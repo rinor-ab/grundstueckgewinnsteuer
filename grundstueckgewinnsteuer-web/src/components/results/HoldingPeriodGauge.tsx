@@ -29,26 +29,26 @@ export function HoldingPeriodGauge({
     const discountStart = (25 / maxYears) * 100; // 62.5%
 
     return (
-        <div className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-border/60 bg-white p-5 shadow-sm">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Besitzdauer
             </h3>
 
             {/* Gauge bar */}
-            <div className="relative h-6 w-full overflow-hidden rounded-full bg-slate-100">
+            <div className="relative h-6 w-full overflow-hidden rounded-full bg-muted">
                 {/* Surcharge zone */}
                 <div
-                    className="absolute inset-y-0 left-0 bg-amber-100"
+                    className="absolute inset-y-0 left-0 bg-[var(--brand-gold)]/10"
                     style={{ width: `${surchargeEnd}%` }}
                 />
                 {/* Neutral zone */}
                 <div
-                    className="absolute inset-y-0 bg-blue-50"
+                    className="absolute inset-y-0 bg-secondary"
                     style={{ left: `${surchargeEnd}%`, width: `${discountStart - surchargeEnd}%` }}
                 />
                 {/* Discount zone */}
                 <div
-                    className="absolute inset-y-0 right-0 bg-emerald-50"
+                    className="absolute inset-y-0 right-0 bg-[var(--brand-sage)]/10"
                     style={{ left: `${discountStart}%` }}
                 />
 
@@ -61,22 +61,22 @@ export function HoldingPeriodGauge({
                     style={{
                         background:
                             yearsExact < 2
-                                ? "linear-gradient(90deg, #f59e0b, #eab308)"
+                                ? "linear-gradient(90deg, var(--brand-gold), var(--brand-gold-light))"
                                 : yearsExact > 25
-                                    ? "linear-gradient(90deg, #3b82f6, #10b981)"
-                                    : "linear-gradient(90deg, #3b82f6, #06b6d4)",
+                                    ? "linear-gradient(90deg, var(--brand-navy), var(--brand-sage))"
+                                    : "linear-gradient(90deg, var(--brand-navy), var(--brand-gold))",
                     }}
                 />
 
                 {/* Marker */}
                 <motion.div
-                    className="absolute top-0 h-full w-0.5 bg-slate-900"
+                    className="absolute top-0 h-full w-0.5 bg-primary"
                     initial={{ left: "0%" }}
                     animate={{ left: `${pct}%` }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
                 >
                     <div className="absolute -top-1 left-1/2 -translate-x-1/2">
-                        <div className="h-2 w-2 rounded-full bg-slate-900 ring-2 ring-white" />
+                        <div className="h-2 w-2 rounded-full bg-primary ring-2 ring-white" />
                     </div>
                 </motion.div>
             </div>
@@ -97,17 +97,17 @@ export function HoldingPeriodGauge({
                 </span>
                 <div className="flex gap-1.5">
                     {surchargeRate && (
-                        <span className="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700 ring-1 ring-amber-200">
+                        <span className="inline-flex items-center rounded-full bg-accent/5 px-2 py-0.5 text-[10px] font-medium text-accent ring-1 ring-accent/20">
                             +{(parseFloat(surchargeRate) * 100).toFixed(0)}% Zuschlag
                         </span>
                     )}
                     {discountRate && (
-                        <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">
+                        <span className="inline-flex items-center rounded-full bg-[var(--brand-sage)]/5 px-2 py-0.5 text-[10px] font-medium text-[var(--brand-sage)] ring-1 ring-[var(--brand-sage)]/20">
                             −{(parseFloat(discountRate) * 100).toFixed(0)}% Abzug
                         </span>
                     )}
                     {!surchargeRate && !discountRate && (
-                        <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700 ring-1 ring-blue-200">
+                        <span className="inline-flex items-center rounded-full bg-primary/5 px-2 py-0.5 text-[10px] font-medium text-primary ring-1 ring-primary/20">
                             Kein Zu-/Abschlag
                         </span>
                     )}

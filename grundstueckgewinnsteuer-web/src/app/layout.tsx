@@ -72,7 +72,7 @@ export default function RootLayout({
                                     © 2026 <a href="https://transactionpartner.ch" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground transition-colors">Transaction Partner AG</a> • Grundstückgewinnsteuer Rechner
                                 </p>
                                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
                                         🔒 Lokal im Browser — keine Daten gespeichert
                                     </span>
                                     <span>•</span>

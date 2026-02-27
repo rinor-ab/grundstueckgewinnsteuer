@@ -18,7 +18,7 @@ export function DatesStep({ form, holdingMonths, setField }: DatesStepProps) {
         form.purchaseDate && form.saleDate && form.purchaseDate > form.saleDate;
 
     const inputClass =
-        "w-full rounded-xl border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
+        "w-full rounded-md border border-input bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/40";
 
     return (
         <div className="space-y-6">
@@ -70,7 +70,7 @@ export function DatesStep({ form, holdingMonths, setField }: DatesStepProps) {
 
             {/* Date order error */}
             {datesInvalid && (
-                <div className="flex items-center gap-2 rounded-xl bg-destructive/5 border border-destructive/20 px-4 py-3">
+                <div className="flex items-center gap-2 rounded-md bg-destructive/5 border border-destructive/20 px-4 py-3">
                     <AlertTriangle size={16} className="text-destructive shrink-0" />
                     <p className="text-sm text-destructive">
                         Erwerbsdatum muss vor Veräusserungsdatum liegen.
@@ -80,7 +80,7 @@ export function DatesStep({ form, holdingMonths, setField }: DatesStepProps) {
 
             {/* Live holding period badge */}
             {holdingMonths > 0 && !datesInvalid && (
-                <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3">
+                <div className="flex items-center gap-3 rounded-md bg-secondary px-4 py-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                         <Clock size={18} className="text-primary" />
                     </div>

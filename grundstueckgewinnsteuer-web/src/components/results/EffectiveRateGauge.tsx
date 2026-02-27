@@ -31,7 +31,7 @@ export function EffectiveRateGauge({ result }: EffectiveRateGaugeProps) {
     const ticks = [0, 10, 20, 30, 40];
 
     return (
-        <div className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-border/60 bg-white p-5 shadow-sm">
             <h3 className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Effektiver Steuersatz
             </h3>
@@ -62,9 +62,9 @@ export function EffectiveRateGauge({ result }: EffectiveRateGaugeProps) {
                     {/* Gradient definition */}
                     <defs>
                         <linearGradient id="rateGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#34d399" />
-                            <stop offset="50%" stopColor="#fbbf24" />
-                            <stop offset="100%" stopColor="#ef4444" />
+                            <stop offset="0%" stopColor="var(--brand-sage)" />
+                            <stop offset="50%" stopColor="var(--brand-gold)" />
+                            <stop offset="100%" stopColor="var(--brand-terracotta)" />
                         </linearGradient>
                     </defs>
 

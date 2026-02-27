@@ -63,7 +63,7 @@ export function ResultStep({
     if (error) {
         return (
             <div className="space-y-6">
-                <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
+                <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-6">
                     <p className="text-sm text-destructive">{error}</p>
                 </div>
                 <button
@@ -266,7 +266,7 @@ export function ResultStep({
                         Abzug −{(parseFloat(result.discountRate) * 100).toFixed(0)}%
                     </span>
                 )}
-                <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 ring-1 ring-blue-200">
+                <span className="inline-flex items-center rounded-full bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary ring-1 ring-primary/20">
                     {result.holdingYears}J {result.holdingMonths % 12}M Besitzdauer
                 </span>
             </motion.div>

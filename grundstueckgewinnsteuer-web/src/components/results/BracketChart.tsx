@@ -8,8 +8,8 @@ interface BracketChartProps {
 }
 
 const BAR_COLORS = [
-    "#dbeafe", "#bfdbfe", "#93c5fd", "#60a5fa",
-    "#3b82f6", "#2563eb", "#1d4ed8", "#1e40af",
+    "#D4C4A8", "#C5B493", "#A68B5B", "#8B6F47",
+    "#6B5A3E", "#4A4035", "#33302C", "#1C2333",
 ];
 
 function formatCHF(v: number): string {
@@ -33,7 +33,7 @@ export function BracketChart({ result }: BracketChartProps) {
     }));
 
     return (
-        <div className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-border/60 bg-white p-5 shadow-sm">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Progressive Steuerstufen
             </h3>
@@ -45,12 +45,12 @@ export function BracketChart({ result }: BracketChartProps) {
                     >
                         <XAxis
                             dataKey="bracket"
-                            tick={{ fontSize: 10, fill: "#94a3b8" }}
+                            tick={{ fontSize: 10, fill: "#6B7280" }}
                             axisLine={false}
                             tickLine={false}
                         />
                         <YAxis
-                            tick={{ fontSize: 10, fill: "#94a3b8" }}
+                            tick={{ fontSize: 10, fill: "#6B7280" }}
                             axisLine={false}
                             tickLine={false}
                             tickFormatter={(v: number) =>
@@ -63,7 +63,7 @@ export function BracketChart({ result }: BracketChartProps) {
                                 name === "taxableAmount" ? "Betrag" : "Steuer",
                             ]}
                             contentStyle={{
-                                backgroundColor: "#1e293b",
+                                backgroundColor: "var(--brand-navy)",
                                 border: "none",
                                 borderRadius: "8px",
                                 color: "#fff",

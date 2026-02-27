@@ -7,7 +7,7 @@ interface TaxBreakdownChartProps {
     result: TaxResult;
 }
 
-const COLORS = ["#3b82f6", "#06b6d4", "#8b5cf6", "#f59e0b"];
+const COLORS = ["#1C2333", "#8B6F47", "#5B7B6A", "#C07056"];
 
 function formatCHF(v: number): string {
     return new Intl.NumberFormat("de-CH", {
@@ -44,7 +44,7 @@ export function TaxBreakdownChart({ result }: TaxBreakdownChartProps) {
     if (total <= 0) return null;
 
     return (
-        <div className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-border/60 bg-white p-5 shadow-sm">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Steuerverteilung
             </h3>
@@ -70,7 +70,7 @@ export function TaxBreakdownChart({ result }: TaxBreakdownChartProps) {
                         <Tooltip
                             formatter={(value) => formatCHF(Number(value ?? 0))}
                             contentStyle={{
-                                backgroundColor: "#1e293b",
+                                backgroundColor: "var(--brand-navy)",
                                 border: "none",
                                 borderRadius: "8px",
                                 color: "#fff",
