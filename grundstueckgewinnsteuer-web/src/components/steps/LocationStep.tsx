@@ -35,7 +35,9 @@ export function LocationStep({ form, communes, years, setField }: LocationStepPr
                     Wo befindet sich Ihre Liegenschaft?
                 </h2>
                 <p className="mt-1.5 text-sm text-muted-foreground">
-                    Der Steuersatz hängt vom Kanton und der Gemeinde ab.
+                    {meta
+                        ? `Im Kanton ${meta.name} gelten kantonal unterschiedliche Steuersätze — wählen Sie Ihre Gemeinde.`
+                        : "Der Steuersatz hängt vom Kanton und der Gemeinde ab."}
                 </p>
             </div>
 

@@ -40,14 +40,14 @@ export const SummaryPanel = memo(function SummaryPanel({
         <div className="lg:sticky lg:top-24 lg:self-start" aria-live="polite" aria-label="Steuer-Übersicht">
             <motion.div
                 layout
-                className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 text-white shadow-2xl"
+                className="overflow-hidden rounded-xl border border-border bg-card p-6 text-foreground shadow-sm"
             >
                 {/* Header with crest */}
                 <div className="mb-5 flex items-center gap-3">
-                    <CantonCrest code={canton} size={32} className="drop-shadow-lg" />
+                    <CantonCrest code={canton} size={32} className="drop-shadow-sm" />
                     <div>
-                        <p className="text-sm font-semibold text-white">Übersicht</p>
-                        <p className="text-xs text-slate-400">Live-Berechnung</p>
+                        <p className="font-serif text-lg font-semibold text-foreground">Übersicht</p>
+                        <p className="text-xs text-muted-foreground">Live-Berechnung</p>
                     </div>
                 </div>
 
@@ -55,11 +55,11 @@ export const SummaryPanel = memo(function SummaryPanel({
                 <div className="space-y-3.5">
                     {/* Canton + commune */}
                     <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 text-sm text-slate-400">
+                        <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
                             <MapPin size={13} />
                             Standort
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-foreground">
                             {cantonName}
                             {commune ? `, ${commune}` : ""}
                         </span>
@@ -72,11 +72,11 @@ export const SummaryPanel = memo(function SummaryPanel({
                             animate={{ opacity: 1, x: 0 }}
                             className="flex items-center justify-between"
                         >
-                            <span className="flex items-center gap-1.5 text-sm text-slate-400">
+                            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
                                 <Clock size={13} />
                                 Besitzdauer
                             </span>
-                            <span className="text-sm font-medium text-white">
+                            <span className="text-sm font-medium text-foreground">
                                 {holdingYears}J {holdingRemainder}M
                             </span>
                         </motion.div>
@@ -89,18 +89,18 @@ export const SummaryPanel = memo(function SummaryPanel({
                             animate={{ opacity: 1, x: 0 }}
                             className="flex items-center justify-between"
                         >
-                            <span className="flex items-center gap-1.5 text-sm text-slate-400">
+                            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
                                 <Calendar size={13} />
                                 Gewinn
                             </span>
-                            <AnimatedNumber value={rawGain} format="chf" className="text-sm font-medium text-white" />
+                            <AnimatedNumber value={rawGain} format="chf" className="text-sm font-medium text-foreground" />
                         </motion.div>
                     )}
 
                     {/* Tax result */}
                     {result && (
                         <>
-                            <div className="my-1 border-t border-white/10" />
+                            <div className="my-1 border-t border-border" />
 
                             {/* Simple tax */}
                             <motion.div
@@ -108,11 +108,11 @@ export const SummaryPanel = memo(function SummaryPanel({
                                 animate={{ opacity: 1 }}
                                 className="flex items-center justify-between"
                             >
-                                <span className="text-sm text-slate-400">Einfache Steuer</span>
+                                <span className="text-sm text-muted-foreground">Einfache Steuer</span>
                                 <AnimatedNumber
                                     value={parseFloat(result.simpleTax)}
                                     format="chf"
-                                    className="text-sm font-medium text-slate-200"
+                                    className="text-sm font-medium text-foreground"
                                 />
                             </motion.div>
 
@@ -123,12 +123,12 @@ export const SummaryPanel = memo(function SummaryPanel({
                                 transition={{ delay: 0.15 }}
                                 className="flex items-center justify-between"
                             >
-                                <span className="text-base font-semibold text-slate-200">Total</span>
+                                <span className="font-serif text-lg font-semibold text-foreground">Total</span>
                                 <AnimatedNumber
                                     value={parseFloat(result.totalTax)}
                                     format="chf"
                                     duration={900}
-                                    className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+                                    className="font-serif text-xl font-bold text-primary"
                                 />
                             </motion.div>
 
@@ -139,11 +139,11 @@ export const SummaryPanel = memo(function SummaryPanel({
                                 transition={{ delay: 0.3 }}
                                 className="flex items-center justify-between"
                             >
-                                <span className="text-sm text-slate-400">Steuersatz</span>
+                                <span className="text-sm text-muted-foreground">Steuersatz</span>
                                 <AnimatedNumber
                                     value={parseFloat(result.effectiveTaxRatePercent)}
                                     format="percent"
-                                    className="text-sm font-medium text-slate-300"
+                                    className="text-sm font-medium text-foreground"
                                 />
                             </motion.div>
                         </>
@@ -159,13 +159,13 @@ export const SummaryPanel = memo(function SummaryPanel({
                         className="mt-4 flex flex-wrap gap-1.5"
                     >
                         {result.surchargeRate && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/20 px-2.5 py-1 text-[11px] font-medium text-amber-300">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-medium text-amber-700 ring-1 ring-amber-200">
                                 <TrendingUp size={11} />+
                                 {(parseFloat(result.surchargeRate) * 100).toFixed(0)}% Zuschlag
                             </span>
                         )}
                         {result.discountRate && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700 ring-1 ring-emerald-200">
                                 <TrendingDown size={11} />−
                                 {(parseFloat(result.discountRate) * 100).toFixed(0)}% Abzug
                             </span>

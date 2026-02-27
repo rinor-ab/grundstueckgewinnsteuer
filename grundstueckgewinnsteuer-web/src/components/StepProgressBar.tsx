@@ -49,12 +49,12 @@ export function StepProgressBar({ currentStep, maxStepReached, totalSteps, onGoT
                                 onClick={() => isReachable && onGoTo(i)}
                                 disabled={!isReachable}
                                 className={`
-                  group relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full
-                  text-sm font-semibold transition-all duration-300
+                  group relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full
+                  text-sm font-medium transition-all duration-300
                   ${isActive
-                                        ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30 ring-4 ring-primary/20"
+                                        ? "bg-primary text-primary-foreground ring-4 ring-primary/10 ring-offset-2 ring-offset-background"
                                         : isCompleted
-                                            ? "bg-primary text-primary-foreground cursor-pointer hover:shadow-md hover:shadow-primary/20"
+                                            ? "bg-primary text-primary-foreground cursor-pointer hover:bg-primary/90"
                                             : isReachable
                                                 ? "bg-muted text-muted-foreground cursor-pointer hover:bg-muted/80"
                                                 : "bg-muted/50 text-muted-foreground/40 cursor-not-allowed"
@@ -73,14 +73,7 @@ export function StepProgressBar({ currentStep, maxStepReached, totalSteps, onGoT
                                     <span>{i + 1}</span>
                                 )}
 
-                                {/* Pulse ring for active step */}
-                                {isActive && (
-                                    <motion.div
-                                        className="absolute inset-0 rounded-full border-2 border-primary"
-                                        animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0, 0.6] }}
-                                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                    />
-                                )}
+                                {/* Removed pulsing ring for active step */}
 
                                 {/* Label tooltip */}
                                 <span
@@ -95,7 +88,7 @@ export function StepProgressBar({ currentStep, maxStepReached, totalSteps, onGoT
 
                             {/* Connector line */}
                             {i < totalSteps - 1 && (
-                                <div className="relative mx-2 h-0.5 flex-1 overflow-hidden rounded-full bg-muted">
+                                <div className="relative mx-3 h-px flex-1 overflow-hidden bg-muted">
                                     <motion.div
                                         className="absolute inset-y-0 left-0 bg-primary"
                                         initial={{ width: "0%" }}

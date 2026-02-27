@@ -3,6 +3,7 @@
 import { DollarSign, TrendingUp } from "lucide-react";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { CurrencyInput } from "@/components/CurrencyInput";
+import { InfoTooltip } from "@/components/InfoTooltip";
 import { ContextualWarning } from "@/components/ContextualWarning";
 import type { FormState } from "@/hooks/use-wizard";
 
@@ -28,14 +29,21 @@ export function PricesStep({ form, rawGain, setField }: PricesStepProps) {
                     Wie hoch war der Kauf- und Verkaufspreis?
                 </h2>
                 <p className="mt-1.5 text-sm text-muted-foreground">
-                    Die Differenz bestimmt den steuerbaren Grundstückgewinn.
+                    {rawGain > 0
+                        ? `Ihr Rohgewinn beträgt CHF ${rawGain.toLocaleString("de-CH")} — davon können noch Abzüge gemacht werden.`
+                        : rawGain < 0
+                            ? "Aktuell kein steuerbarer Gewinn — der Verkaufspreis liegt unter dem Kaufpreis."
+                            : "Die Differenz bestimmt den steuerbaren Grundstückgewinn."}
                 </p>
             </div>
 
             {/* Price inputs */}
             <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Kaufpreis</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Kaufpreis
+                        <InfoTooltip text="Der im Kaufvertrag vereinbarte Preis inkl. Wert allfälliger Gegenleistungen." />
+                    </label>
                     <CurrencyInput
                         id="purchase-price"
                         className={inputClass}
@@ -45,7 +53,10 @@ export function PricesStep({ form, rawGain, setField }: PricesStepProps) {
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Verkaufspreis</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Verkaufspreis
+                        <InfoTooltip text="Der tatsächlich erzielte Verkaufserlös gemäss Kaufvertrag." />
+                    </label>
                     <CurrencyInput
                         id="sale-price"
                         className={inputClass}

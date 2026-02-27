@@ -1,6 +1,7 @@
 "use client";
 
 import { Calendar, Clock, AlertTriangle } from "lucide-react";
+import { InfoTooltip } from "@/components/InfoTooltip";
 import { ContextualWarning } from "@/components/ContextualWarning";
 import type { FormState } from "@/hooks/use-wizard";
 
@@ -31,14 +32,19 @@ export function DatesStep({ form, holdingMonths, setField }: DatesStepProps) {
                     Seit wann besitzen Sie die Liegenschaft?
                 </h2>
                 <p className="mt-1.5 text-sm text-muted-foreground">
-                    Die Besitzdauer beeinflusst den Steuersatz erheblich.
+                    {holdingMonths > 0 && !datesInvalid
+                        ? `${holdingYears > 0 ? `${holdingYears} Jahr${holdingYears !== 1 ? "e" : ""}` : ""}${holdingRemainder > 0 ? `${holdingYears > 0 ? " und " : ""}${holdingRemainder} Monat${holdingRemainder !== 1 ? "e" : ""}` : ""} Besitzdauer — je länger, desto tiefer der Steuersatz.`
+                        : "Die Besitzdauer beeinflusst den Steuersatz erheblich."}
                 </p>
             </div>
 
             {/* Date inputs */}
             <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Erwerbsdatum</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Erwerbsdatum
+                        <InfoTooltip text="Datum der Eigentumsübertragung im Grundbuch (nicht Vertragsunterzeichnung)." />
+                    </label>
                     <input
                         id="purchase-date"
                         type="date"
@@ -48,7 +54,10 @@ export function DatesStep({ form, holdingMonths, setField }: DatesStepProps) {
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Veräusserungsdatum</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Veräusserungsdatum
+                        <InfoTooltip text="Datum des Verkaufs bzw. der Eigentumsübertragung an den Käufer." />
+                    </label>
                     <input
                         id="sale-date"
                         type="date"

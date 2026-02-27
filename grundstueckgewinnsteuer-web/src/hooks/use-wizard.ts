@@ -224,6 +224,36 @@ export function useWizard() {
         }
     }, [state.form]);
 
+    /** Run a what-if simulation with a different sale price (no state mutation) */
+    const simulate = useCallback(
+        (hypotheticalSalePrice: number): TaxResult | null => {
+            try {
+                const f = state.form;
+                const inputs: TaxInputs = {
+                    canton: f.canton,
+                    commune: f.commune || getCommunes(f.canton, f.taxYear)[0] || "",
+                    taxYear: f.taxYear,
+                    purchaseDate: f.purchaseDate,
+                    saleDate: f.saleDate,
+                    purchasePrice: f.purchasePrice,
+                    salePrice: String(hypotheticalSalePrice),
+                    acquisitionCosts: f.acquisitionCosts,
+                    sellingCosts: f.sellingCosts,
+                    investments:
+                        parseFloat(f.investmentAmount) > 0
+                            ? [{ description: "Wertvermehrende Investitionen", amount: f.investmentAmount }]
+                            : [],
+                    taxpayerType: "natural",
+                    confessions: f.confessions,
+                };
+                return computeTax(inputs);
+            } catch {
+                return null;
+            }
+        },
+        [state.form],
+    );
+
     const reset = useCallback(() => dispatch({ type: "RESET" }), []);
 
     // Derived values
@@ -269,6 +299,7 @@ export function useWizard() {
         setField,
         setConfessions,
         compute,
+        simulate,
         reset,
         holdingMonths,
         rawGain,

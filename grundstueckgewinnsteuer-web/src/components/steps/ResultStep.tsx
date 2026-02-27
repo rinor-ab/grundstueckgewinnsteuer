@@ -21,6 +21,7 @@ import { WaterfallChart } from "@/components/results/WaterfallChart";
 import { EffectiveRateGauge } from "@/components/results/EffectiveRateGauge";
 import { HoldingPeriodGauge } from "@/components/results/HoldingPeriodGauge";
 import { TaxInsights } from "@/components/results/TaxInsights";
+import { ScenarioSlider } from "@/components/results/ScenarioSlider";
 import type { TaxResult } from "@/lib/tax/types";
 
 interface ResultStepProps {
@@ -32,6 +33,7 @@ interface ResultStepProps {
     purchasePrice: number;
     salePrice: number;
     deductions: number;
+    onSimulate: (newSalePrice: number) => TaxResult | null;
     onReset: () => void;
 }
 
@@ -44,7 +46,18 @@ function formatCHF(value: string | number): string {
     }).format(num);
 }
 
-export function ResultStep({ result, error, canton, commune, taxYear, purchasePrice, salePrice, deductions, onReset }: ResultStepProps) {
+export function ResultStep({
+    result,
+    error,
+    canton,
+    commune,
+    taxYear,
+    purchasePrice,
+    salePrice,
+    deductions,
+    onSimulate,
+    onReset,
+}: ResultStepProps) {
     const [showExtras, setShowExtras] = useState(false);
 
     if (error) {
@@ -55,7 +68,7 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                 </div>
                 <button
                     onClick={onReset}
-                    className="flex items-center gap-2 rounded-xl border border-border/60 bg-white px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-slate-50"
+                    className="flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                 >
                     <RotateCcw size={14} />
                     Neu berechnen
@@ -95,7 +108,7 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                         </p>
                     </div>
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground">
                     Ihre Grundstückgewinnsteuer
                 </h2>
             </motion.div>
@@ -105,23 +118,22 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5, type: "spring", stiffness: 200 }}
-                className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 text-center shadow-2xl"
+                className="rounded-xl border border-border bg-card p-8 text-center shadow-sm"
             >
-                <p className="mb-2 text-sm text-slate-400">Geschuldete Steuer</p>
-                <div className="text-4xl font-bold">
+                <p className="mb-2 text-sm text-muted-foreground">Geschuldete Steuer</p>
+                <div className="font-serif text-4xl font-bold text-primary">
                     <AnimatedNumber
                         value={parseFloat(result.totalTax)}
                         format="chf"
                         duration={1200}
-                        className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent"
                     />
                 </div>
-                <p className="mt-2 text-sm text-slate-400">
+                <p className="mt-2 text-sm text-muted-foreground">
                     Effektiver Steuersatz:{" "}
                     <AnimatedNumber
                         value={parseFloat(result.effectiveTaxRatePercent)}
                         format="percent"
-                        className="font-medium text-slate-300"
+                        className="font-medium text-foreground"
                     />
                 </p>
             </motion.div>
@@ -131,7 +143,7 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="rounded-2xl border border-border/60 bg-white p-5 shadow-sm"
+                className="rounded-xl border border-border bg-card p-5 shadow-sm"
             >
                 <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                     Aufschlüsselung
@@ -215,6 +227,15 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                 />
             </motion.div>
 
+            {/* Scenario Slider */}
+            <div className="space-y-4">
+                <ScenarioSlider
+                    salePrice={salePrice}
+                    currentTax={parseFloat(result.totalTax)}
+                    onSimulate={onSimulate}
+                />
+            </div>
+
             {/* Insights */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -255,7 +276,7 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                 <div>
                     <button
                         onClick={() => setShowExtras(!showExtras)}
-                        className="flex w-full items-center justify-between rounded-xl border border-border/60 bg-white px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-slate-50"
+                        className="flex w-full items-center justify-between rounded-md border border-border bg-card px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary"
                     >
                         Zusätzliche Details
                         {showExtras ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -269,7 +290,7 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden"
                             >
-                                <div className="mt-2 space-y-1.5 rounded-xl border border-border/60 bg-white p-4 shadow-sm">
+                                <div className="mt-2 space-y-1.5 rounded-md border border-border bg-card p-4 shadow-sm">
                                     {Object.entries(result.extra).map(([k, v]) => (
                                         <div key={k} className="flex justify-between text-sm text-muted-foreground">
                                             <span>{k.replace(/_/g, " ")}</span>
@@ -292,21 +313,21 @@ export function ResultStep({ result, error, canton, commune, taxYear, purchasePr
             >
                 <button
                     onClick={onReset}
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border/60 bg-white px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-slate-50"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                 >
                     <RotateCcw size={14} />
                     Neue Berechnung
                 </button>
                 <button
                     onClick={handleExportJSON}
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border/60 bg-white px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-slate-50"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                 >
                     <Download size={14} />
                     JSON
                 </button>
                 <button
                     onClick={() => window.print()}
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border/60 bg-white px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-slate-50"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                 >
                     <Printer size={14} />
                     Drucken

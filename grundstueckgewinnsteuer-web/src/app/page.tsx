@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calculator, AlertCircle, ChevronUp, Loader2 } from "lucide-react";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
@@ -15,6 +15,7 @@ import { DatesStep } from "@/components/steps/DatesStep";
 import { PricesStep } from "@/components/steps/PricesStep";
 import { DeductionsStep } from "@/components/steps/DeductionsStep";
 import { ResultStep } from "@/components/steps/ResultStep";
+import { StepSkeleton } from "@/components/Skeleton";
 
 // ---------------------------------------------------------------------------
 // Step transition variants
@@ -48,6 +49,7 @@ export default function CalculatorPage() {
         setField,
         setConfessions,
         compute,
+        simulate,
         reset,
         holdingMonths,
         rawGain,
@@ -60,6 +62,7 @@ export default function CalculatorPage() {
     } = useWizard();
 
     const [isComputing, setIsComputing] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     const handleNext = useCallback(() => {
         if (isLastInputStep) {
@@ -71,13 +74,56 @@ export default function CalculatorPage() {
                 setIsComputing(false);
             }, 400);
         } else {
-            next();
+            setIsTransitioning(true);
+            setTimeout(() => {
+                next();
+                setIsTransitioning(false);
+            }, 250);
         }
     }, [isLastInputStep, compute, next]);
+
+    const handleBack = useCallback(() => {
+        setIsTransitioning(true);
+        setTimeout(() => {
+            back();
+            setIsTransitioning(false);
+        }, 250);
+    }, [back]);
+
+    const handleGoTo = useCallback(
+        (step: number) => {
+            setIsTransitioning(true);
+            setTimeout(() => {
+                goTo(step);
+                setIsTransitioning(false);
+            }, 250);
+        },
+        [goTo],
+    );
 
     const handleReset = useCallback(() => {
         reset();
     }, [reset]);
+
+    // Keyboard navigation: Enter = next, Escape = back
+    useEffect(() => {
+        function onKeyDown(e: KeyboardEvent) {
+            // Don't intercept when typing in inputs
+            const tag = (e.target as HTMLElement)?.tagName;
+            if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+            if (isResultStep) return;
+
+            if (e.key === "Enter") {
+                e.preventDefault();
+                handleNext();
+            } else if (e.key === "Escape" && state.step > 0) {
+                e.preventDefault();
+                handleBack();
+            }
+        }
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [handleNext, handleBack, isResultStep, state.step]);
 
     // Current step content
     const renderStep = () => {
@@ -131,6 +177,7 @@ export default function CalculatorPage() {
                             parseFloat(state.form.sellingCosts || "0") +
                             parseFloat(state.form.investmentAmount || "0")
                         }
+                        onSimulate={simulate}
                         onReset={handleReset}
                     />
                 );
@@ -140,13 +187,13 @@ export default function CalculatorPage() {
     };
 
     return (
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
             {/* Progress Bar */}
             <StepProgressBar
                 currentStep={state.step}
                 maxStepReached={state.maxStepReached}
                 totalSteps={totalSteps}
-                onGoTo={goTo}
+                onGoTo={handleGoTo}
             />
 
             <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_340px]">
@@ -161,9 +208,9 @@ export default function CalculatorPage() {
                             animate="center"
                             exit="exit"
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="rounded-2xl border border-border/60 bg-white p-6 shadow-sm sm:p-8"
+                            className="rounded-xl border border-border bg-card p-6 shadow-[0_4px_24px_rgba(0,0,0,0.02)] sm:p-12"
                         >
-                            {renderStep()}
+                            {isTransitioning ? <StepSkeleton /> : renderStep()}
                         </motion.div>
                     </AnimatePresence>
 
@@ -174,7 +221,7 @@ export default function CalculatorPage() {
                                 initial={{ opacity: 0, y: 4 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0 }}
-                                className="mt-4 rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3"
+                                className="mt-4 rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3"
                             >
                                 <p className="flex items-center gap-2 text-sm text-destructive">
                                     <AlertCircle size={16} />
@@ -188,9 +235,9 @@ export default function CalculatorPage() {
                     {!isResultStep && (
                         <div className="mt-6 flex items-center justify-between">
                             <button
-                                onClick={back}
-                                disabled={state.step === 0}
-                                className="flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-muted-foreground transition-all hover:bg-slate-100 hover:text-foreground disabled:invisible"
+                                onClick={handleBack}
+                                disabled={state.step === 0 || isTransitioning}
+                                className="flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium text-muted-foreground transition-all hover:bg-secondary hover:text-foreground disabled:invisible"
                             >
                                 <ArrowLeft size={16} />
                                 Zurück
@@ -200,7 +247,7 @@ export default function CalculatorPage() {
                                 onClick={handleNext}
                                 disabled={isComputing}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 disabled:opacity-80"
+                                className="flex items-center gap-2 rounded-md bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-accent-foreground transition-all hover:bg-accent/90 disabled:opacity-80"
                             >
                                 {isLastInputStep ? (
                                     isComputing ? (
@@ -238,7 +285,7 @@ export default function CalculatorPage() {
 
             {/* ====== Mobile sticky summary bar ====== */}
             {!isResultStep && (
-                <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-border/40 bg-white/90 backdrop-blur-xl safe-bottom">
+                <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-border bg-background/95 backdrop-blur-xl safe-bottom">
                     <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
                         <div className="flex items-center gap-2">
                             <ChevronUp size={14} className="text-muted-foreground" />

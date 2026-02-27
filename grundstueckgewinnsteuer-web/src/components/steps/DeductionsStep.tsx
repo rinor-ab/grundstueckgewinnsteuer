@@ -2,6 +2,7 @@
 
 import { Receipt, Info } from "lucide-react";
 import { CurrencyInput } from "@/components/CurrencyInput";
+import { InfoTooltip } from "@/components/InfoTooltip";
 import type { FormState } from "@/hooks/use-wizard";
 
 interface DeductionsStepProps {
@@ -44,14 +45,19 @@ export function DeductionsStep({
                     Welche Abzüge können Sie geltend machen?
                 </h2>
                 <p className="mt-1.5 text-sm text-muted-foreground">
-                    Diese Kosten reduzieren den steuerbaren Gewinn. Alle Felder sind optional.
+                    {totalDeductions > 0
+                        ? `Total Abzüge: CHF ${totalDeductions.toLocaleString("de-CH")} — diese reduzieren Ihren steuerbaren Gewinn.`
+                        : "Diese Kosten reduzieren den steuerbaren Gewinn. Alle Felder sind optional."}
                 </p>
             </div>
 
             {/* Cost inputs */}
             <div className="grid gap-4 sm:grid-cols-3">
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Erwerbsnebenkosten</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Erwerbsnebenkosten
+                        <InfoTooltip text="Kosten im Zusammenhang mit dem Erwerb: Notariats- und Grundbuchgebühren, Handänderungssteuer, Vermittlungsprovision." />
+                    </label>
                     <CurrencyInput
                         id="acquisition-costs"
                         className={inputClass}
@@ -62,7 +68,10 @@ export function DeductionsStep({
                     <p className="text-xs text-muted-foreground">Notar, Handänderungssteuer</p>
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Veräusserungskosten</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Veräusserungskosten
+                        <InfoTooltip text="Kosten im Zusammenhang mit dem Verkauf: Maklerprovision, Inserate, Notariatsgebühren." />
+                    </label>
                     <CurrencyInput
                         id="selling-costs"
                         className={inputClass}
@@ -73,7 +82,10 @@ export function DeductionsStep({
                     <p className="text-xs text-muted-foreground">Makler, Inserate</p>
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Investitionen</label>
+                    <label className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        Investitionen
+                        <InfoTooltip text="Wertvermehrende Investitionen wie An-/Umbauten, Renovationen — nicht werterhaltende Ausgaben." />
+                    </label>
                     <CurrencyInput
                         id="investments"
                         className={inputClass}
