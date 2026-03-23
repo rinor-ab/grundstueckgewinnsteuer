@@ -1,212 +1,192 @@
 {
   "brackets": [
     {
-      "limit": 2700,
+      "limit": 2800,
       "rate": 0.0144
     },
     {
-      "limit": 5400,
+      "limit": 5600,
       "rate": 0.024
     },
     {
-      "limit": 13300,
+      "limit": 13800,
       "rate": 0.0408
     },
     {
-      "limit": 26300,
+      "limit": 27200,
       "rate": 0.0492
     },
     {
-      "limit": 52600,
-      "rate": 0.057
+      "limit": 54000,
+      "rate": 0.0641
     },
     {
-      "limit": 105200,
-      "rate": 0.0648
+      "limit": 134400,
+      "rate": 0.0726
     },
     {
-      "limit": 263100,
-      "rate": 0.0744
+      "limit": 335500,
+      "rate": 0.0781
     }
   ],
   "top_rate": 0.081,
-  "minimum_taxable_gain": 5200,
+  "minimum_taxable_gain": 5300,
   "surcharge_threshold_months": 60,
   "surcharges_by_months": [
     {
-      "max_months": 12,
+      "max_months": 11,
       "rate": 0.7
     },
     {
-      "max_months": 24,
+      "max_months": 23,
       "rate": 0.5
     },
     {
-      "max_months": 36,
+      "max_months": 35,
       "rate": 0.35
     },
     {
-      "max_months": 48,
+      "max_months": 47,
       "rate": 0.2
     },
     {
-      "max_months": 60,
+      "max_months": 59,
       "rate": 0.1
     }
   ],
-  "discount_min_years": 6,
+  "discount_min_years": 5,
   "discount_mode": "gain_reduction",
   "discounts_by_years": [
     {
-      "years": 6,
-      "rate": 0.02
-    },
-    {
-      "years": 7,
-      "rate": 0.04
-    },
-    {
-      "years": 8,
-      "rate": 0.06
-    },
-    {
-      "years": 9,
-      "rate": 0.08
-    },
-    {
-      "years": 10,
+      "years": 5,
       "rate": 0.1
     },
     {
-      "years": 11,
+      "years": 6,
       "rate": 0.12
     },
     {
-      "years": 12,
+      "years": 7,
       "rate": 0.14
     },
     {
-      "years": 13,
+      "years": 8,
       "rate": 0.16
     },
     {
-      "years": 14,
+      "years": 9,
       "rate": 0.18
     },
     {
-      "years": 15,
+      "years": 10,
       "rate": 0.2
     },
     {
-      "years": 16,
+      "years": 11,
       "rate": 0.22
     },
     {
-      "years": 17,
+      "years": 12,
       "rate": 0.24
     },
     {
-      "years": 18,
+      "years": 13,
       "rate": 0.26
     },
     {
-      "years": 19,
+      "years": 14,
       "rate": 0.28
     },
     {
-      "years": 20,
+      "years": 15,
       "rate": 0.3
     },
     {
-      "years": 21,
+      "years": 16,
       "rate": 0.32
     },
     {
-      "years": 22,
+      "years": 17,
       "rate": 0.34
     },
     {
-      "years": 23,
+      "years": 18,
       "rate": 0.36
     },
     {
-      "years": 24,
+      "years": 19,
       "rate": 0.38
     },
     {
-      "years": 25,
+      "years": 20,
       "rate": 0.4
     },
     {
-      "years": 26,
+      "years": 21,
       "rate": 0.42
     },
     {
-      "years": 27,
+      "years": 22,
       "rate": 0.44
     },
     {
-      "years": 28,
+      "years": 23,
       "rate": 0.46
     },
     {
-      "years": 29,
+      "years": 24,
       "rate": 0.48
     },
     {
-      "years": 30,
+      "years": 25,
       "rate": 0.5
     },
     {
-      "years": 31,
+      "years": 26,
       "rate": 0.52
     },
     {
-      "years": 32,
+      "years": 27,
       "rate": 0.54
     },
     {
-      "years": 33,
+      "years": 28,
       "rate": 0.56
     },
     {
-      "years": 34,
+      "years": 29,
       "rate": 0.58
     },
     {
-      "years": 35,
+      "years": 30,
       "rate": 0.6
     },
     {
-      "years": 36,
+      "years": 31,
       "rate": 0.62
     },
     {
-      "years": 37,
+      "years": 32,
       "rate": 0.64
     },
     {
-      "years": 38,
+      "years": 33,
       "rate": 0.66
     },
     {
-      "years": 39,
+      "years": 34,
       "rate": 0.68
     },
     {
-      "years": 40,
+      "years": 35,
       "rate": 0.7
     }
   ],
-  "rounding": {
-    "simple_tax": "to_fixed_2",
-    "shares": "to_fixed_2"
-  },
-  "tax_model": "steuerfuss",
-  "confessions": [
-    "evangR",
-    "roemK",
-    "christK",
-    "Andere"
-  ]
+  "sourceLinks": [
+    "https://www.be.ch/de/steuern/steuern-kanton-bern/grundstueckgewinnsteuer.html",
+    "https://www.taxme.be.ch/calc-web/ggst/ggst.form",
+    "https://www.be.ch/de/steuern/steuern-kanton-bern/gesetze-und-merkblaetter/gesetze-und-verordnungen.html"
+  ],
+  "dataVersion": "1.0.0",
+  "lastUpdated": "2024-03-03"
 }

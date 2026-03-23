@@ -195,6 +195,7 @@ export interface CantonTariff {
     minimum_tax?: number;
     gain_rounding?: number;
     freibetrag?: number;
+    discount_mode?: "gain_reduction" | "tax_reduction";
 
     // Metadata
     dataVersion?: string;

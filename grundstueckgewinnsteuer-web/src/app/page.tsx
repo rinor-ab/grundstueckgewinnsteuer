@@ -167,6 +167,7 @@ export default function CalculatorPage() {
                     <ResultStep
                         result={state.result!}
                         error={state.error}
+                        warnings={state.warnings}
                         canton={state.form.canton}
                         commune={state.form.commune}
                         taxYear={state.form.taxYear}

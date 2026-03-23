@@ -71,13 +71,17 @@ export default function RootLayout({
                                 <p className="text-xs text-muted-foreground">
                                     © 2026 <a href="https://transactionpartner.ch" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground transition-colors">Transaction Partner AG</a> • Grundstückgewinnsteuer Rechner
                                 </p>
-                                <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                                <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-muted-foreground">
                                     <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
-                                        🔒 Lokal im Browser — keine Daten gespeichert
+                                        🔒 Lokal im Browser
                                     </span>
-                                    <span>•</span>
-                                    ⚠️ Keine Rechtsberatung — massgebend sind die kantonalen Steuergesetze
-                                </p>
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700 ring-1 ring-amber-200">
+                                        ⚠️ Unverbindliche Berechnung
+                                    </span>
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+                                        Datenstand 2026-02-24
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </footer>

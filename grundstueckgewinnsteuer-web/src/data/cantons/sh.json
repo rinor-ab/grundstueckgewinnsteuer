@@ -137,14 +137,10 @@
     }
   ],
   "minimum_taxable_gain": 0,
+  "gain_rounding": 100,
   "rounding": {
     "simple_tax": "to_fixed_2",
     "shares": "round_up_to_005"
   },
-  "confessions": [
-    "evangR",
-    "roemK",
-    "christK",
-    "Andere"
-  ]
+  "confessions": []
 }

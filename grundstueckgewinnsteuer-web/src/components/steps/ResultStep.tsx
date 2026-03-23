@@ -11,6 +11,9 @@ import {
     RotateCcw,
     TrendingUp,
     TrendingDown,
+    Info,
+    ShieldAlert,
+    ExternalLink,
 } from "lucide-react";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { CantonCrest } from "@/components/crests/CantonCrest";
@@ -23,10 +26,12 @@ import { HoldingPeriodGauge } from "@/components/results/HoldingPeriodGauge";
 import { TaxInsights } from "@/components/results/TaxInsights";
 import { ScenarioSlider } from "@/components/results/ScenarioSlider";
 import type { TaxResult } from "@/lib/tax/types";
+import meta from "@/data/meta.json";
 
 interface ResultStepProps {
     result: TaxResult;
     error: string | null;
+    warnings?: string[];
     canton: string;
     commune: string;
     taxYear: number;
@@ -49,6 +54,7 @@ function formatCHF(value: string | number): string {
 export function ResultStep({
     result,
     error,
+    warnings = [],
     canton,
     commune,
     taxYear,
@@ -112,6 +118,23 @@ export function ResultStep({
                     Ihre Grundstückgewinnsteuer
                 </h2>
             </motion.div>
+
+            {/* Integrity warnings */}
+            {warnings.length > 0 && (
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                    className="rounded-lg border border-blue-200 bg-blue-50 p-3"
+                >
+                    {warnings.map((w, i) => (
+                        <p key={i} className="flex items-start gap-2 text-xs text-blue-700">
+                            <Info size={14} className="mt-0.5 shrink-0" />
+                            {w}
+                        </p>
+                    ))}
+                </motion.div>
+            )}
 
             {/* Big total */}
             <motion.div
@@ -304,11 +327,61 @@ export function ResultStep({
                 </div>
             )}
 
+            {/* Datenstand & Source */}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.75 }}
+                className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+            >
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 font-medium">
+                    <Info size={12} />
+                    Datenstand: {meta.dataVersion}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 font-medium">
+                    Engine v{meta.engineVersion}
+                </span>
+                {result.metadata?.sourceLinks?.length > 0 && (
+                    <a
+                        href={result.metadata.sourceLinks[0]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1.5 font-medium text-primary ring-1 ring-primary/20 transition-colors hover:bg-primary/10"
+                    >
+                        <ExternalLink size={12} />
+                        Offizielle Quelle
+                    </a>
+                )}
+            </motion.div>
+
+            {/* Legal disclaimer */}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="rounded-xl border border-amber-200 bg-amber-50 p-4"
+            >
+                <div className="flex gap-3">
+                    <ShieldAlert size={20} className="mt-0.5 shrink-0 text-amber-600" />
+                    <div className="space-y-1">
+                        <p className="text-sm font-semibold text-amber-800">
+                            Unverbindliche Berechnung
+                        </p>
+                        <p className="text-xs leading-relaxed text-amber-700">
+                            Diese Berechnung dient ausschliesslich der unverbindlichen Orientierung.
+                            Die tatsächliche Steuer wird durch die zuständige kantonale Steuerverwaltung
+                            im Rahmen des Veranlagungsverfahrens festgesetzt. Für die Richtigkeit der
+                            Berechnung wird keine Haftung übernommen.
+                        </p>
+                    </div>
+                </div>
+            </motion.div>
+
             {/* Action buttons */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                transition={{ delay: 0.85 }}
                 className="flex gap-2"
             >
                 <button

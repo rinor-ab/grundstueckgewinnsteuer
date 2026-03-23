@@ -2,6 +2,8 @@
 
 import { useReducer, useCallback, useMemo } from "react";
 import { computeTax } from "@/lib/tax/compute";
+import { checkIntegrity } from "@/lib/tax/integrity";
+import type { IntegrityResult } from "@/lib/tax/integrity";
 import { getCommunes, getAvailableYears, getConfessions } from "@/lib/tax/registry";
 import type { TaxInputs, TaxResult } from "@/lib/tax/types";
 
@@ -30,6 +32,8 @@ export interface WizardState {
     form: FormState;
     result: TaxResult | null;
     error: string | null;
+    warnings: string[];
+    integrity: IntegrityResult | null;
     isComputing: boolean;
 }
 
@@ -46,7 +50,7 @@ type Action =
     | { type: "SET_FIELD"; field: keyof FormState; value: unknown }
     | { type: "SET_CONFESSIONS"; confessions: Record<string, number> }
     | { type: "COMPUTE_START" }
-    | { type: "COMPUTE_SUCCESS"; result: TaxResult }
+    | { type: "COMPUTE_SUCCESS"; result: TaxResult; warnings: string[]; integrity: IntegrityResult }
     | { type: "COMPUTE_ERROR"; error: string }
     | { type: "RESET" };
 
@@ -129,11 +133,11 @@ function wizardReducer(state: WizardState, action: Action): WizardState {
         case "SET_CONFESSIONS":
             return { ...state, form: { ...state.form, confessions: action.confessions }, error: null };
         case "COMPUTE_START":
-            return { ...state, isComputing: true, error: null };
+            return { ...state, isComputing: true, error: null, warnings: [] };
         case "COMPUTE_SUCCESS":
-            return { ...state, isComputing: false, result: action.result, error: null };
+            return { ...state, isComputing: false, result: action.result, error: null, warnings: action.warnings, integrity: action.integrity };
         case "COMPUTE_ERROR":
-            return { ...state, isComputing: false, error: action.error };
+            return { ...state, isComputing: false, error: action.error, warnings: [] };
         case "RESET":
             return createInitialState();
         default:
@@ -168,6 +172,8 @@ function createInitialState(): WizardState {
         },
         result: null,
         error: null,
+        warnings: [],
+        integrity: null,
         isComputing: false,
     };
 }
@@ -214,8 +220,19 @@ export function useWizard() {
                 taxpayerType: "natural",
                 confessions: f.confessions,
             };
+
+            // Run integrity checks before computation
+            const integrity = checkIntegrity(inputs);
+            if (!integrity.valid) {
+                dispatch({
+                    type: "COMPUTE_ERROR",
+                    error: integrity.errors.join(" "),
+                });
+                return;
+            }
+
             const result = computeTax(inputs);
-            dispatch({ type: "COMPUTE_SUCCESS", result });
+            dispatch({ type: "COMPUTE_SUCCESS", result, warnings: integrity.warnings, integrity });
         } catch (e) {
             dispatch({
                 type: "COMPUTE_ERROR",

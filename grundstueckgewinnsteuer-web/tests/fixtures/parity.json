@@ -4,7 +4,7 @@
     "inputs": {
       "canton": "SH",
       "commune": "Schaffhausen",
-      "taxYear": 2026,
+      "taxYear": 2025,
       "purchaseDate": "2015-01-01",
       "saleDate": "2025-06-15",
       "purchasePrice": "500000",
@@ -18,7 +18,7 @@
     "expected": {
       "taxableGain": "200000",
       "simpleTax": "22500.00",
-      "totalTax": "35775"
+      "totalTax": "37125.00"
     }
   },
   {
@@ -26,7 +26,7 @@
     "inputs": {
       "canton": "SH",
       "commune": "Schaffhausen",
-      "taxYear": 2026,
+      "taxYear": 2025,
       "purchaseDate": "2015-01-01",
       "saleDate": "2025-06-15",
       "purchasePrice": "500000",
@@ -35,15 +35,12 @@
       "sellingCosts": "0",
       "investments": [],
       "taxpayerType": "natural",
-      "confessions": {
-        "evangR": 1,
-        "roemK": 1
-      }
+      "confessions": {}
     },
     "expected": {
       "taxableGain": "200000",
       "simpleTax": "22500.00",
-      "totalTax": "38700.00"
+      "totalTax": "37125.00"
     }
   },
   {
@@ -51,7 +48,7 @@
     "inputs": {
       "canton": "SH",
       "commune": "Schaffhausen",
-      "taxYear": 2026,
+      "taxYear": 2025,
       "purchaseDate": "2020-01-01",
       "saleDate": "2025-06-15",
       "purchasePrice": "500000",
@@ -65,7 +62,7 @@
     "expected": {
       "taxableGain": "10000",
       "simpleTax": "600.00",
-      "totalTax": "954"
+      "totalTax": "990.00"
     }
   },
   {
@@ -108,8 +105,8 @@
     },
     "expected": {
       "taxableGain": "150000",
-      "simpleTax": "8859.90",
-      "totalTax": "8859.90"
+      "simpleTax": "8934.05",
+      "totalTax": "8934.05"
     }
   },
   {
@@ -131,7 +128,7 @@
     "expected": {
       "taxableGain": "100000",
       "simpleTax": "8750.30",
-      "totalTax": "36751.26"
+      "totalTax": "8750.30"
     }
   },
   {
@@ -152,8 +149,8 @@
     },
     "expected": {
       "taxableGain": "200000",
-      "simpleTax": "22000.00",
-      "totalTax": "22000.00"
+      "simpleTax": "20000.00",
+      "totalTax": "20000.00"
     }
   },
   {
@@ -547,9 +544,97 @@
       "confessions": {}
     },
     "expected": {
-      "taxableGain": "140000",
+      "taxableGain": "150000",
       "simpleTax": "36400.00",
       "totalTax": "36400.00"
+    }
+  },
+  {
+    "label": "VS_10yr",
+    "inputs": {
+      "canton": "VS",
+      "commune": "Sion",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "400000",
+      "salePrice": "550000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "21600",
+      "totalTax": "21600"
+    }
+  },
+  {
+    "label": "JU_5yr",
+    "inputs": {
+      "canton": "JU",
+      "commune": "Delémont",
+      "taxYear": 2026,
+      "purchaseDate": "2020-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "350000",
+      "salePrice": "500000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "6750",
+      "totalTax": "6750"
+    }
+  },
+  {
+    "label": "NE_8yr",
+    "inputs": {
+      "canton": "NE",
+      "commune": "Neuchâtel",
+      "taxYear": 2026,
+      "purchaseDate": "2017-06-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "300000",
+      "salePrice": "450000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "150000",
+      "simpleTax": "34542",
+      "totalTax": "34542"
+    }
+  },
+  {
+    "label": "BL_10yr",
+    "inputs": {
+      "canton": "BL",
+      "commune": "Liestal",
+      "taxYear": 2026,
+      "purchaseDate": "2015-01-01",
+      "saleDate": "2025-06-15",
+      "purchasePrice": "500000",
+      "salePrice": "700000",
+      "acquisitionCosts": "0",
+      "sellingCosts": "0",
+      "investments": [],
+      "taxpayerType": "natural",
+      "confessions": {}
+    },
+    "expected": {
+      "taxableGain": "200000",
+      "simpleTax": "120000",
+      "totalTax": "120000"
     }
   }
 ]

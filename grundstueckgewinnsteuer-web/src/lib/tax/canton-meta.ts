@@ -26,7 +26,7 @@ export const CANTON_META: Record<string, CantonMeta> = {
         engineType: "progressive",
         communes: [], // loaded from steuerfuesse.json
         availableYears: [2024, 2025, 2026],
-        confessions: ["evangR", "roemK", "christK", "Andere"],
+        confessions: [],
         hasSteuerfussData: true,
         accentColor: "#D4A300",
         modelLabel: "Progressive Steuertabelle",
@@ -64,12 +64,12 @@ export const CANTON_META: Record<string, CantonMeta> = {
     AG: {
         code: "AG",
         name: "Aargau",
-        engineType: "progressive",
+        engineType: "degressive",
         communes: ["Aarau", "Baden", "Wettingen", "Brugg", "Lenzburg", "Rheinfelden"],
         availableYears: [2024, 2025, 2026],
         confessions: ["evangR", "roemK", "christK", "Andere"],
         accentColor: "#0057B8",
-        modelLabel: "Progressive Steuertabelle",
+        modelLabel: "Degressive Haltedauer-Sätze",
     },
     SG: {
         code: "SG",

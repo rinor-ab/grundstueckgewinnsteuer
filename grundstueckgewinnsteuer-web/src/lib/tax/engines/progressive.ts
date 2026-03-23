@@ -71,11 +71,27 @@ export function computeProgressive(
         return zeroResult(inputs, taxableGain, totalMonths);
     }
 
+    let finalTaxableGain = taxableGain;
+    let discountRateApplied: Decimal | null = null;
+    const discounts = tariff.discounts_by_years ?? tariff.discounts ?? [];
+    const discountMin = tariff.discount_min_years ?? 6;
+
+    if (tariff.discount_mode === "gain_reduction") {
+        const [reducedGain, dRate] = applyDiscount(
+            taxableGain,
+            totalMonths,
+            discounts,
+            discountMin
+        );
+        finalTaxableGain = reducedGain;
+        discountRateApplied = dRate;
+    }
+
     // Step 1: Progressive brackets
     const brackets = tariff.brackets ?? [];
     const topRate = tariff.top_rate ?? null;
     const { totalTax: baseTax, steps, flatAmount, flatTax } = evaluateBrackets(
-        taxableGain,
+        finalTaxableGain,
         brackets,
         topRate,
     );
@@ -94,11 +110,12 @@ export function computeProgressive(
     );
     tax = afterSurcharge;
 
-    // Step 3: Discount
-    const discounts = tariff.discounts_by_years ?? tariff.discounts ?? [];
-    const discountMin = tariff.discount_min_years ?? 6;
-    const [afterDiscount, discountRate] = applyDiscount(tax, totalMonths, discounts, discountMin);
-    tax = afterDiscount;
+    // Step 3: Discount (only if not already applied to gain)
+    if (tariff.discount_mode !== "gain_reduction") {
+        const [afterDiscount, dRate] = applyDiscount(tax, totalMonths, discounts, discountMin);
+        tax = afterDiscount;
+        discountRateApplied = dRate;
+    }
 
     // Step 4: Finalize
     const simpleTax = toFixed2(tax);
@@ -159,7 +176,7 @@ export function computeProgressive(
         flatRateAmount: flatAmount.toString(),
         flatRateTax: flatTax.toString(),
         surchargeRate: surchargeRate?.toString() ?? null,
-        discountRate: discountRate?.toString() ?? null,
+        discountRate: discountRateApplied?.toString() ?? null,
         simpleTaxBeforeAdjustments: simpleTaxBefore.toString(),
         effectiveTaxRatePercent: effRate.toString(),
         cantonMultiplierPercent: cantonMult.toString(),
